@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Global Configuration Override
  *
@@ -10,9 +11,8 @@
  * control, so do not include passwords or other sensitive information in this
  * file.
  */
-
 return array(
-       'doctrine' => array(
+    'doctrine' => array(
         'connection' => array(
             'orm_default' => array(
                 'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
@@ -21,10 +21,22 @@ return array(
                     'user' => 'root',
                     'password' => '',
                     'dbname' => 'ttta',
-                    'charset' =>  'UTF8'
+                    'charset' => 'utf8',
+                   
                 )
             )
         ),
-        
+        'driver' => array(
+            'Application_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../../module/Application/src/Application/Entity')
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Application\Entity' => 'Application_driver'
+                )
+            )
+        ),
     ),
 );

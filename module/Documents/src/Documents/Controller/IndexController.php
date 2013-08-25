@@ -10,15 +10,16 @@
 
 namespace Documents\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
+use Application\Controller\BaseController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController {
+class IndexController extends BaseController {
 
     public function indexAction() {
-        $title = "Tài liệu học tiếng anh";
+        $docsModel = new \Application\Model\DocumentModel($GLOBALS["em"]);
+        $data = $docsModel->findAll();
         return new ViewModel(array(
-            'title' => $title
+            'docs' => $data
         ));
     }
 

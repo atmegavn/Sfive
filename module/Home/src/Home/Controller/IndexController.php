@@ -10,13 +10,14 @@
 
 namespace Home\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
+use Application\Controller\BaseController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController {
+class IndexController extends BaseController {
 
     public function indexAction() {
         $title = "Trang chủ";
+        $em = $this->getEntityManager();
         return new ViewModel(array(
             'title' => $title
         ));

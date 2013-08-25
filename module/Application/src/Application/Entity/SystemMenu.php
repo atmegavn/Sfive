@@ -57,4 +57,129 @@ class SystemMenu
     private $description;
 
 
+
+    /**
+     * Get menuId
+     *
+     * @return integer 
+     */
+    public function getMenuId()
+    {
+        return $this->menuId;
+    }
+
+    /**
+     * Set menuName
+     *
+     * @param string $menuName
+     * @return SystemMenu
+     */
+    public function setMenuName($menuName)
+    {
+        $this->menuName = $menuName;
+    
+        return $this;
+    }
+
+    /**
+     * Get menuName
+     *
+     * @return string 
+     */
+    public function getMenuName()
+    {
+        return $this->menuName;
+    }
+
+    /**
+     * Set parentId
+     *
+     * @param integer $parentId
+     * @return SystemMenu
+     */
+    public function setParentId($parentId)
+    {
+        $this->parentId = $parentId;
+    
+        return $this;
+    }
+
+    /**
+     * Get parentId
+     *
+     * @return integer 
+     */
+    public function getParentId()
+    {
+        return $this->parentId;
+    }
+
+    /**
+     * Set menuType
+     *
+     * @param integer $menuType
+     * @return SystemMenu
+     */
+    public function setMenuType($menuType)
+    {
+        $this->menuType = $menuType;
+    
+        return $this;
+    }
+
+    /**
+     * Get menuType
+     *
+     * @return integer 
+     */
+    public function getMenuType()
+    {
+        return $this->menuType;
+    }
+
+    /**
+     * Set isonweb
+     *
+     * @param integer $isonweb
+     * @return SystemMenu
+     */
+    public function setIsonweb($isonweb)
+    {
+        $this->isonweb = $isonweb;
+    
+        return $this;
+    }
+
+    /**
+     * Get isonweb
+     *
+     * @return integer 
+     */
+    public function getIsonweb()
+    {
+        return $this->isonweb;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return SystemMenu
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 }

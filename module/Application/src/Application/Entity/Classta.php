@@ -78,4 +78,198 @@ class Classta
     private $teacherId;
 
 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set numberCus
+     *
+     * @param integer $numberCus
+     * @return Classta
+     */
+    public function setNumberCus($numberCus)
+    {
+        $this->numberCus = $numberCus;
+    
+        return $this;
+    }
+
+    /**
+     * Get numberCus
+     *
+     * @return integer 
+     */
+    public function getNumberCus()
+    {
+        return $this->numberCus;
+    }
+
+    /**
+     * Set coursesId
+     *
+     * @param integer $coursesId
+     * @return Classta
+     */
+    public function setCoursesId($coursesId)
+    {
+        $this->coursesId = $coursesId;
+    
+        return $this;
+    }
+
+    /**
+     * Get coursesId
+     *
+     * @return integer 
+     */
+    public function getCoursesId()
+    {
+        return $this->coursesId;
+    }
+
+    /**
+     * Set inTime
+     *
+     * @param string $inTime
+     * @return Classta
+     */
+    public function setInTime($inTime)
+    {
+        $this->inTime = $inTime;
+    
+        return $this;
+    }
+
+    /**
+     * Get inTime
+     *
+     * @return string 
+     */
+    public function getInTime()
+    {
+        return $this->inTime;
+    }
+
+    /**
+     * Set outTime
+     *
+     * @param string $outTime
+     * @return Classta
+     */
+    public function setOutTime($outTime)
+    {
+        $this->outTime = $outTime;
+    
+        return $this;
+    }
+
+    /**
+     * Get outTime
+     *
+     * @return string 
+     */
+    public function getOutTime()
+    {
+        return $this->outTime;
+    }
+
+    /**
+     * Set inDate
+     *
+     * @param string $inDate
+     * @return Classta
+     */
+    public function setInDate($inDate)
+    {
+        $this->inDate = $inDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get inDate
+     *
+     * @return string 
+     */
+    public function getInDate()
+    {
+        return $this->inDate;
+    }
+
+    /**
+     * Set outDate
+     *
+     * @param string $outDate
+     * @return Classta
+     */
+    public function setOutDate($outDate)
+    {
+        $this->outDate = $outDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get outDate
+     *
+     * @return string 
+     */
+    public function getOutDate()
+    {
+        return $this->outDate;
+    }
+
+    /**
+     * Set weekSchedule
+     *
+     * @param string $weekSchedule
+     * @return Classta
+     */
+    public function setWeekSchedule($weekSchedule)
+    {
+        $this->weekSchedule = $weekSchedule;
+    
+        return $this;
+    }
+
+    /**
+     * Get weekSchedule
+     *
+     * @return string 
+     */
+    public function getWeekSchedule()
+    {
+        return $this->weekSchedule;
+    }
+
+    /**
+     * Set teacherId
+     *
+     * @param integer $teacherId
+     * @return Classta
+     */
+    public function setTeacherId($teacherId)
+    {
+        $this->teacherId = $teacherId;
+    
+        return $this;
+    }
+
+    /**
+     * Get teacherId
+     *
+     * @return integer 
+     */
+    public function getTeacherId()
+    {
+        return $this->teacherId;
+    }
 }
