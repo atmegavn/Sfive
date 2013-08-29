@@ -26,8 +26,8 @@ class IndexController extends BaseController {
         ));
     }
 
-    public function addAction() {
-        $action = "upload action";
+    public function webuploadAction() {
+        $action = "Upload";
         return new ViewModel(array(
             'action' => $action,
         ));

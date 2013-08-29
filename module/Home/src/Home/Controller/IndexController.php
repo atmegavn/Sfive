@@ -17,7 +17,7 @@ class IndexController extends BaseController {
 
     public function indexAction() {
         $title = "Trang chủ";
-        $em = $this->getEntityManager();
+        //$em = $this->getEntityManager();
         return new ViewModel(array(
             'title' => $title
         ));
