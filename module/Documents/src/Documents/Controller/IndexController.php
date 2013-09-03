@@ -27,7 +27,7 @@ class IndexController extends BaseController {
     }
 
     public function webuploadAction() {
-        $action = "Upload";
+        $action = "Upload tài liệu học tiếng Anh";
         return new ViewModel(array(
             'action' => $action,
         ));

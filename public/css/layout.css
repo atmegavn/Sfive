@@ -1,0 +1,26 @@
+#pages{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+}
+#banner{
+    width: 100%;
+    height: 280px;
+    margin-top: 10px;
+}
+#content{
+    width: 100%;
+    min-height: 650px;
+    margin-top: 5px;
+}
+#left-menu{
+    width: 25%;
+    min-height: 650px;
+    float: left;
+}
+
+#entry{
+    width: 74%;
+    min-height: 650px;
+    float: right;
+}

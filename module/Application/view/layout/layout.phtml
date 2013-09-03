@@ -10,45 +10,110 @@
         <!-- Le styles -->
         <?php
         echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-                ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
-                ->prependStylesheet($this->basePath() . '/css/style.css')
+                ->prependStylesheet($this->basePath() . '/plugins/apycom.com-15-orange/menu.css')
+                ->prependStylesheet($this->basePath() . '/css/layout.css')
                 ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+                ->prependStylesheet($this->basePath() . '/css/sfive-theme/jquery-ui-1.10.3.custom.css')
         ?>
-
         <!-- Scripts -->
         <?php
         echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/plugins/apycom.com-15-orange/menu.js')
+                ->prependFile($this->basePath() . '/js/layout.js')
                 ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+                ->prependFile($this->basePath() . '/plugins/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js')
                 ->prependFile($this->basePath() . '/js/jquery-1.10.2.js')
         ?>
+        
+
     </head>
-    <body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="<?php echo $this->url('application') ?>"><?php echo $this->translate('Skeleton Application') ?></a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav">
-                            <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Home') ?></a></li>
-                            <li class="active"><a href="<?php echo $this->url('application') ?>"><?php echo $this->translate('Application') ?></a></li>
-                            <li class="active"><a href="<?php echo $this->url('documents') ?>"><?php echo $this->translate('Documents') ?></a></li>
+    <body style="background-color: #999999">
+        <div id="pages">
+            <div id="menu">
+                <ul class="menu">
+                    <li><a href="<?php echo $this->url('home') ?>"><span>Trang chủ</span></a></li>
+                    <li><a href="#" class="parent"><span>Về Sfive ?</span></a>
+                        <div><ul>
+                                <li><a href="#"><span>Chúng tôi là ai ?</span></a></li>
+                                <li><a href="#"><span>Tại sao chọn Sfive ?</span></a></li>
+                                <li><a href="#"><span>Đội ngũ giáo viên</span></a></li>
+                                <li><a href="#"><span>Cảm nghĩ học viên</span></a></li>
+                            </ul></div>
+                    </li>
+                    <li><a href="#" class="parent"><span>Các khóa học</span></a>
+                        <div><ul>
+                                <li><a href="#"><span>Tiếng Anh giao tiếp</span></a></li>
+                                <li><a href="#"><span>Luyện thi TOIEC</span></a></li>
+                                <li><a href="#"><span>Luyện thi IELTS</span></a></li>
+                                <li><a href="#"><span>Ngữ pháp tiếng Anh</span></a></li>
+                            </ul></div>
+                    </li>
+                    <li><a href="#" class="parent"><span>Góc học viên</span></a>
+                        <div class="columns two">
+                            <ul class="one">
+                                <li><a href="#"><span>Cảm nghĩ học viên</span></a></li>
+                                <li><a href="#"><span>Thành tích xuất sắc</span></a></li>
+                                <li><a href="#"><span>Kết quả các lớp học</span></a></li>
+                            </ul>
+                            <ul class="two">
+                                <li><a href="#"><span>Góc thư giãn</span></a></li>
+                                <li><a href="#"><span>Gallery</span></a></li>
+                                <li><a href="#"><span>CLB Tiếng Anh Sfive</span></a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="<?php echo $this->url('documents') ?>"><span>Góc tài liệu</span></a>
+
+                    </li>
+                    <li class="last"><a href="#"><span>Liên hệ & Tuyển dụng</span></a></li>
+                </ul>
+            </div>
+            <div id="banner" class="ui-widget-content ui-corner-all"
+                 style="background-image: url(<?php echo $this->basePath() . '/img/IMG_6436.JPG' ?>);background-size: cover;
+                 ">
+            </div>
+            <div id="content" >
+                <div id="left-menu" class="ui-widget-content ui-corner-all">
+                    <div id="accordion">
+                        <h3>Tin tức & Sự kiện</h3>
+                        <ul class="jquery-menu" id="news">
+                            <li><a href="#">Tin tức Sfive</a></li>
+                            <li><a href="#">Học bổng</a></li>
+                            <li><a href="#">Hoạt động</a></li>
+                            <li><a href="#">Học viên</a></li>
                         </ul>
-                    </div><!--/.nav-collapse -->
+                        <h3>Học tập</h3>
+                        <ul class="jquery-menu" id="news">
+                            <li><a href="#">Đăng ký học</a></li>
+                            <li><a href="#">Lịch học</a></li>
+                            <li><a href="#">Lịch khai giảng</a></li>
+                            <li><a href="#">Điểm thi</a></li>
+                        </ul>
+                        <h3>Tài liệu</h3>
+                        <div>
+                            <p>
+
+                            </p>
+
+                        </div>
+                        <h3>Kiểm tra trình độ</h3>
+                        
+                    </div>
+
+                </div>
+                <div id="entry" class="ui-widget-content ui-corner-all">
+                    <?php echo $this->content; ?>
                 </div>
             </div>
         </div>
-        <div class="container">
-            <?php echo $this->content; ?>
-            <hr>
-            <footer>
-                <p>&copy; 2005 - <?php echo date('Y') ?> by Zend Technologies Ltd. <?php echo $this->translate('All rights reserved.') ?></p>
-            </footer>
-        </div> 
-        <?php echo $this->inlineScript() ?>
+        <div hidden="true" id="copyright">Copyright &copy; 2013 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>
     </body>
+    <div class="container">
+        <p>
+        <footer>
+            <p>&copy; <?php echo date('Y') ?> by Sfive English Center. <?php echo $this->translate('All rights reserved.') ?></p>
+        </footer>
+    </div> 
+    <?php echo $this->inlineScript() ?>
 </html>
