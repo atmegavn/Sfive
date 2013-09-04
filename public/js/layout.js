@@ -15,7 +15,7 @@ $(document).ready(function() {
             // [string] Can be either "slide" or "fade".
             interval: 5000,
             // [number] Time spent on each slide in milliseconds.
-            auto: false,
+            auto: true,
             // [boolean] Start playing the slideshow on load.
             swap: true,
             // [boolean] show/hide stop and play buttons
