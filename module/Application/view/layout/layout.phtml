@@ -19,17 +19,19 @@
         <!-- Scripts -->
         <?php
         echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/plugins/jquery-slideshow/jquery.slides.js')
                 ->prependFile($this->basePath() . '/plugins/apycom.com-15-orange/menu.js')
                 ->prependFile($this->basePath() . '/js/layout.js')
                 ->prependFile($this->basePath() . '/js/bootstrap.min.js')
                 ->prependFile($this->basePath() . '/plugins/jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js')
                 ->prependFile($this->basePath() . '/js/jquery-1.10.2.js')
         ?>
-        
+
 
     </head>
-    <body style="background-color: #cccccc">
+    <body style="background-color: rgb(250, 228, 182)">
         <div id="pages">
+
             <div id="menu">
                 <ul class="menu">
                     <li><a href="<?php echo $this->url('home') ?>"><span>Trang chủ</span></a></li>
@@ -69,7 +71,13 @@
                     <li class="last"><a href="#"><span>Liên hệ & Tuyển dụng</span></a></li>
                 </ul>
             </div>
-            <div id="banner" class="ui-widget-content ui-corner-all">
+            <div  id="banner" class="ui-widget-content ui-corner-all">
+                <div id="slides" style="height: 100%; width: 100%">
+                    <img  src="<?php echo $this->basePath() . '/img/example-slide-1.jpg' ?>"/>
+                    <img src="<?php echo $this->basePath() . '/img/example-slide-2.jpg' ?>"/>
+                    <img src="<?php echo $this->basePath() . '/img/example-slide-3.jpg' ?>"/>
+                    <img src="<?php echo $this->basePath() . '/img/example-slide-4.jpg' ?>"/>
+                </div>
             </div>
             <div id="content" >
                 <div id="left-menu" class="ui-widget-content ui-corner-all">
@@ -96,7 +104,7 @@
 
                         </div>
                         <h3>Kiểm tra trình độ</h3>
-                        
+
                     </div>
 
                 </div>
@@ -109,7 +117,8 @@
     </body>
     <div class="container">
         <p>
-        <footer>
+        <p>
+        <footer style="text-align: center">
             <p>&copy; <?php echo date('Y') ?> by Sfive English Center. <?php echo $this->translate('All rights reserved.') ?></p>
         </footer>
     </div> 
