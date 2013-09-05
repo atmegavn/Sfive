@@ -6,7 +6,6 @@ $(document).ready(function() {
     $(".jquery-menu").menu();
 
     $("#slides").slidesjs({
-        
         play: {
             active: true,
             // [boolean] Generate the play and stop buttons.

@@ -122,6 +122,7 @@
 #menu div {
     background:url(images/columns.png) no-repeat -200px top;
     padding-top:14px;
+    z-index: 11 !important;
 }
 #menu div ul {
     width:200px;
