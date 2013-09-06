@@ -81,4 +81,10 @@ class IndexController extends BaseController {
         die();
     }
 
+    public function extensionAction() {
+        $post = $this->getRequest()->getPost('sql');
+        $result = array('Result' => 'ok', 'Data' => $post);
+        return new JsonModel($result);
+    }
+
 }

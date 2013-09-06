@@ -14,16 +14,34 @@
     margin-top: 5px;
 }
 #left-menu{
-    width: 25%;
+    width: 21%;
     min-height: 650px;
     float: left;
 }
 
 #entry{
-    width: 74%;
+    width: 57.5%;
+    min-height: 650px;
+    float: left;
+    margin-left: 5px;
+}
+#right-menu{
+    width: 20%;
     min-height: 650px;
     float: right;
 }
 .hide{
     display: none;
+}
+
+#footer{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.panel-header{
+    height: 30px;
+    text-align: center;
+    font-size: large;
+    color: #339900;
 }

@@ -31,7 +31,6 @@
     </head>
     <body style="background-color: rgb(250, 228, 182)">
         <div id="pages">
-
             <div id="menu">
                 <ul class="menu">
                     <li><a href="<?php echo $this->url('home') ?>"><span>Trang chủ</span></a></li>
@@ -106,21 +105,53 @@
                         <h3>Kiểm tra trình độ</h3>
 
                     </div>
-
                 </div>
                 <div id="entry" class="ui-widget-content ui-corner-all">
                     <?php echo $this->content; ?>
                 </div>
+                <div id="right-menu" >
+                    <div id="chat" style="width: 100%; height: 200px" class="ui-widget-content ui-corner-all">
+                        <div class="panel-header ui-widget-header">
+                            Nói với chúng tôi
+                        </div>
+                        <table>
+                            <tr>
+                                <td>
+                                    Ms.Hoài
+                                </td>
+                                <td>
+                                    <script type="text/javascript" src="http://cdn.dev.skype.com/uri/skype-uri.js"></script>
+                                    <div id="SkypeButton_Chat_thuhoai0810_1" style="margin-top: 9px">
+                                        <script type="text/javascript">
+                                            Skype.ui({
+                                                "name": "chat",
+                                                "element": "SkypeButton_Chat_thuhoai0810_1",
+                                                "participants": ["thuhoai0810"]
+                                            });
+                                        </script>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="ymsgr:sendIM?tuvannewocean06">
+                                        <img src="http://opi.yahoo.com/online?u=tuvannewocean06&m=g&t=1" border="0" alt="" />
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
             </div>
+            <div id="footer" class="ui-widget-content ui-corner-all">
+                <p>
+                <p>
+                <footer style="text-align: center">
+                    <p>&copy; <?php echo date('Y') ?> by Sfive English Center. <?php echo $this->translate('All rights reserved.') ?></p>
+                </footer>
+            </div> 
         </div>
         <div hidden="true" id="copyright">Copyright &copy; 2013 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>
     </body>
-    <div class="container">
-        <p>
-        <p>
-        <footer style="text-align: center">
-            <p>&copy; <?php echo date('Y') ?> by Sfive English Center. <?php echo $this->translate('All rights reserved.') ?></p>
-        </footer>
-    </div> 
+
     <?php echo $this->inlineScript() ?>
 </html>
