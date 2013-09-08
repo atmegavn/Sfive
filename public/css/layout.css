@@ -18,7 +18,7 @@
     width: 21%;
     min-height: 650px;
     float: left;
-    font-size: 0.9em;
+    font-size: 0.8em;
 }
 
 #entry{
@@ -52,7 +52,7 @@
 .marquee {
     position:relative;
     overflow:hidden;
-    width:500px;
+    width: 1500px;
     height:22px;
     padding-top: 5px;
 }

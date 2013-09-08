@@ -40,11 +40,13 @@ var layoutAction = {
     run_marquee: function() {
         $left = parseInt($("#runtext").css('left'));
         console.log($("#runtext").css('left'));
+        $wid = 0 - $("#runtext").width();
         setInterval(function() {
             $left = $left - 1;
-            if ($left == -500) {
+            if ($left == $wid) {
                 $left = 1000;
             }
+            //console.log($left);
             $("#runtext").css('left', $left);
         }, 30);
     }
