@@ -4,7 +4,6 @@ $(document).ready(function() {
         heightStyle: "content"
     });
     $(".jquery-menu").menu();
-
     $("#slides").slidesjs({
         play: {
             active: true,
@@ -32,4 +31,21 @@ $(document).ready(function() {
             }
         }
     });
+    layoutAction.run_marquee();
 });
+
+
+
+var layoutAction = {
+    run_marquee: function() {
+        $left = parseInt($("#runtext").css('left'));
+        console.log($("#runtext").css('left'));
+        setInterval(function() {
+            $left = $left - 1;
+            if ($left == -500) {
+                $left = 1000;
+            }
+            $("#runtext").css('left', $left);
+        }, 30);
+    }
+};

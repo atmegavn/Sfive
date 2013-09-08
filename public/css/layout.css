@@ -1,7 +1,8 @@
 #pages{
-    width: 80%;
+    width: 1000px;
     height: 100%;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 #banner{
     width: 100%;
@@ -17,6 +18,7 @@
     width: 21%;
     min-height: 650px;
     float: left;
+    font-size: 0.9em;
 }
 
 #entry{
@@ -44,4 +46,14 @@
     text-align: center;
     font-size: large;
     color: #339900;
+    padding-top: 6px;
 }
+
+.marquee {
+    position:relative;
+    overflow:hidden;
+    width:500px;
+    height:22px;
+    padding-top: 5px;
+}
+.marquee span {white-space:nowrap; color: #ff9900}

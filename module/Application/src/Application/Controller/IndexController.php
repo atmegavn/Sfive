@@ -12,8 +12,9 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Application\Controller\BaseController;
 
-class IndexController extends AbstractActionController {
+class IndexController extends BaseController {
 
     public function indexAction() {
         return new ViewModel(array(
