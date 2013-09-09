@@ -4,6 +4,7 @@ $(document).ready(function() {
         heightStyle: "content"
     });
     $(".jquery-menu").menu();
+
     $("#slides").slidesjs({
         play: {
             active: true,
@@ -32,9 +33,8 @@ $(document).ready(function() {
         }
     });
     layoutAction.run_marquee();
+    layoutAction.skyper_init();
 });
-
-
 
 var layoutAction = {
     run_marquee: function() {
@@ -49,5 +49,19 @@ var layoutAction = {
             //console.log($left);
             $("#runtext").css('left', $left);
         }, 30);
+    },
+    skyper_init: function() {
+        Skype.ui({
+            "name": "chat",
+            "element": "thuhoai0810",
+            "participants": ["thuhoai0810"],
+            "imageSize": 12
+        });
+        Skype.ui({
+            "name": "chat",
+            "element": "atmegavn",
+            "participants": ["atmegavn"],
+            "imageSize": 12
+        });
     }
 };
