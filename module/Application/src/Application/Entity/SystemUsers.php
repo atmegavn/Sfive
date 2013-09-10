@@ -15,231 +15,81 @@ class SystemUsers
     /**
      * @var integer
      *
-     * @ORM\Column(name="USER_ID", type="integer", nullable=false)
+     * @ORM\Column(name="idsystem_users", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $userId;
+    private $idsystemUsers;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="USER_NAME", type="string", length=45, nullable=false)
+     * @ORM\Column(name="system_usersname", type="string", length=45, nullable=true)
      */
-    private $userName;
+    private $systemUsersname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="PASSWORD", type="string", length=500, nullable=false)
+     * @ORM\Column(name="system_userspassword", type="string", length=45, nullable=true)
      */
-    private $password;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="PRIORITY", type="integer", nullable=false)
-     */
-    private $priority;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="STATUS", type="integer", nullable=false)
-     */
-    private $status;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="PHONE", type="string", length=45, nullable=true)
-     */
-    private $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="EMAIL", type="string", length=45, nullable=true)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="FULL_NAME", type="string", length=45, nullable=false)
-     */
-    private $fullName;
+    private $systemUserspassword;
 
 
 
     /**
-     * Get userId
+     * Get idsystemUsers
      *
      * @return integer 
      */
-    public function getUserId()
+    public function getIdsystemUsers()
     {
-        return $this->userId;
+        return $this->idsystemUsers;
     }
 
     /**
-     * Set userName
+     * Set systemUsersname
      *
-     * @param string $userName
+     * @param string $systemUsersname
      * @return SystemUsers
      */
-    public function setUserName($userName)
+    public function setSystemUsersname($systemUsersname)
     {
-        $this->userName = $userName;
-    
+        $this->systemUsersname = $systemUsersname;
+
         return $this;
     }
 
     /**
-     * Get userName
+     * Get systemUsersname
      *
      * @return string 
      */
-    public function getUserName()
+    public function getSystemUsersname()
     {
-        return $this->userName;
+        return $this->systemUsersname;
     }
 
     /**
-     * Set password
+     * Set systemUserspassword
      *
-     * @param string $password
+     * @param string $systemUserspassword
      * @return SystemUsers
      */
-    public function setPassword($password)
+    public function setSystemUserspassword($systemUserspassword)
     {
-        $this->password = $password;
-    
+        $this->systemUserspassword = $systemUserspassword;
+
         return $this;
     }
 
     /**
-     * Get password
+     * Get systemUserspassword
      *
      * @return string 
      */
-    public function getPassword()
+    public function getSystemUserspassword()
     {
-        return $this->password;
-    }
-
-    /**
-     * Set priority
-     *
-     * @param integer $priority
-     * @return SystemUsers
-     */
-    public function setPriority($priority)
-    {
-        $this->priority = $priority;
-    
-        return $this;
-    }
-
-    /**
-     * Get priority
-     *
-     * @return integer 
-     */
-    public function getPriority()
-    {
-        return $this->priority;
-    }
-
-    /**
-     * Set status
-     *
-     * @param integer $status
-     * @return SystemUsers
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-    
-        return $this;
-    }
-
-    /**
-     * Get status
-     *
-     * @return integer 
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     * @return SystemUsers
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-    
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string 
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return SystemUsers
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set fullName
-     *
-     * @param string $fullName
-     * @return SystemUsers
-     */
-    public function setFullName($fullName)
-    {
-        $this->fullName = $fullName;
-    
-        return $this;
-    }
-
-    /**
-     * Get fullName
-     *
-     * @return string 
-     */
-    public function getFullName()
-    {
-        return $this->fullName;
+        return $this->systemUserspassword;
     }
 }
