@@ -14,7 +14,7 @@
                 ->prependStylesheet($this->basePath() . '/css/layout.css')
                 ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
                 ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
-                ->prependStylesheet($this->basePath() . '/css/sfive-theme/jquery-ui-1.10.3.custom.css')
+                ->prependStylesheet($this->basePath() . '/plugins/jquery-ui-1.10.3/css/sfive-theme/jquery-ui-1.10.3.custom.css')
         ?>
         <!-- Scripts -->
         <?php
@@ -30,6 +30,7 @@
     </head>
     <body style="background-color: rgb(250, 228, 182)">
         <div id="pages">
+            <div id="logo" ></div>
             <div id="menu">
                 <ul class="menu">
                     <li><a href="<?php echo $this->url('home') ?>"><span>Trang chủ</span></a></li>
@@ -78,11 +79,9 @@
                 </div>
             </div>
             <div id="runtext" style="left: 0px" class="marquee" >
-                <a>
-                    <span>
-                        Việc xếp hàng chờ mua iPhone mới giống như là một truyền thống mỗi khi Apple giới thiệu sản phẩm mới. Tuy nhiên lần này thì nó diễn ra khá sớm và ngay cả khi Apple còn chưa nói ra chiếc iPhone mới sẽ như thế nào.... 
-                    </span>
-                </a>
+                <span>
+                    Việc xếp hàng chờ mua iPhone mới giống như là một truyền thống mỗi khi Apple giới thiệu sản phẩm mới. Tuy nhiên lần này thì nó diễn ra khá sớm và ngay cả khi Apple còn chưa nói ra chiếc iPhone mới sẽ như thế nào.... 
+                </span>
             </div>
             <div id="content" >
                 <div id="left-menu" class="ui-widget-content ui-corner-all">
