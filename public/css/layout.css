@@ -66,3 +66,12 @@
     padding-top: 5px;
 }
 .marquee span {white-space:nowrap; color: #ff9900}
+
+.post-label{
+    font-weight: bold;
+    margin-left: 10px;
+}
+.post-input{
+    width: 500px; 
+    margin-left: 2px
+}

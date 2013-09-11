@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    console.log("loading ready");
+    console.log("loading ready21");
     $("#accordion").accordion({
         heightStyle: "content"
     });
