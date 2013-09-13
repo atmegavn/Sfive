@@ -13,12 +13,18 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Controller\BaseController;
+use Application\Model\MenuModel;
 
 class IndexController extends BaseController {
 
+    public function initMenu() {
+        $model = new MenuModel($GLOBALS['em']);
+        return $model->findAll();
+    }
+
     public function indexAction() {
         return new ViewModel(array(
-            'title' => 'Application'
+            'title' => 'Chức năng đăng phát triển, vui lòng quay lại sau'
         ));
     }
 

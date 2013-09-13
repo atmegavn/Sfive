@@ -35,6 +35,20 @@ class Menu
      */
     private $parent;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="order", type="integer", nullable=false)
+     */
+    private $order;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="href", type="string", length=200, nullable=true)
+     */
+    private $href;
+
 
 
     /**
@@ -91,5 +105,51 @@ class Menu
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Set order
+     *
+     * @param integer $order
+     * @return Menu
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return integer 
+     */
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
+    /**
+     * Set href
+     *
+     * @param string $href
+     * @return Menu
+     */
+    public function setHref($href)
+    {
+        $this->href = $href;
+
+        return $this;
+    }
+
+    /**
+     * Get href
+     *
+     * @return string 
+     */
+    public function getHref()
+    {
+        return $this->href;
     }
 }

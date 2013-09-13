@@ -1,5 +1,6 @@
 $(document).ready(function() {
     console.log("loading ready");
+    //$("#content").height($("#entry").height()+100);
     $("#accordion").accordion({
         heightStyle: "content"
     });
@@ -41,6 +42,7 @@ var layoutAction = {
         $left = parseInt($("#runtext").css('left'));
         console.log($("#runtext").css('left'));
         $wid = 0 - $("#runtext").width();
+        $txt = $("#runtext span").text();
         setInterval(function() {
             $left = $left - 1;
             if ($left == $wid) {
