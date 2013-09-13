@@ -17,9 +17,14 @@ use Zend\View\Model\JsonModel;
 class IndexController extends BaseController {
 
     public function indexAction() {
-        $title = "Chúng tôi là ai";
+        $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
+        $data = $contentModel->findAll();
+        $title = $data[0]->getTitle();
+        $content = $data[1]->getIntrotext();
+        //$result = array();
         return new ViewModel(array(
-            'title' => $title
+            'title' => $title,
+            'content' => $content
         ));
     }
 

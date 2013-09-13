@@ -5,26 +5,10 @@
 <div id="MyTableContainer">
     <div class="filtering" >
         <form>
-            Tên bài viết: <input type="text" name="name" id="name" />
-            Mục: 
-            <select id="cityId" name="cityId">
-                <option selected="selected" value="0">Tất cả</option>
-                <option value="1">Adana</option>
-                <option value="2">Ankara</option>
-                <option value="3">Athens</option>
-                <option value="4">Beijing</option>
-                <option value="5">Berlin</option>
-                <option value="6">Bursa</option>
-                <option value="7">İstanbul</option>
-                <option value="8">London</option>
-                <option value="9">Madrid</option>
-                <option value="10">Mekke</option>
-                <option value="11">New York</option>
-                <option value="12">Paris</option>
-                <option value="13">Samsun</option>
-                <option value="14">Trabzon</option>
-                <option value="15">Volos</option>
-            </select>
+            <?php
+            echo $this->formRow($this->form->get('title'));
+            echo $this->formRow($this->form->get('menu'));
+            ?>
             <button type="submit" id="LoadRecordsButton">Load records</button>
         </form>
     </div>

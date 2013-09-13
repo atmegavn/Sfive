@@ -12,9 +12,10 @@ class PostController extends BaseController {
 
     //put your code here
     public function indexAction() {
-
+        $content = new \Application\Form\ContentForm();
         $viewModel = new ViewModel(array(
-            'title' => 'Quản lý bài viết'
+            'title' => 'Quản lý bài viết123',
+            'form' => $content
         ));
         return $viewModel;
     }
