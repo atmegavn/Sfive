@@ -32,7 +32,6 @@ $(document).ready(function() {
         paging: true,
         sorting: true,
         title: "Quản lý bài viết",
-        defaultSorting: 'id DESC',
         selecting: true, //Enable selecting
         multiselect: true, //Allow multiple selecting
         selectingCheckboxes: true, //Show checkboxes on first column
@@ -85,10 +84,47 @@ $(document).ready(function() {
                 sorting: false
             }
         },
+        selectionChanged: function() {
+            var $selectedRows = $('#MyTableContainer').jtable('selectedRows');
+            $('#SelectedRowList').empty();
+            if ($selectedRows.length > 0) {
+                $selectedRows.each(function() {
+                    var record = $(this).data('record');
+                    id = record.title;
+                    console.log("id = " + id);
+
+                });
+            } else {
+                $('#SelectedRowList').append('No row selected! Select rows to see here...');
+            }
+        },
         recordsLoaded: function() {
             console.log("Loaded");
             $("#entry").height($("#MyTableContainer").height());
         }
     });
-    $('#MyTableContainer').jtable('load');
+    $('#MyTableContainer').jtable(
+            'load',
+            {
+                cmd: 0,
+                title: $("#articletitle").val(),
+                type: $("#menuselect").val()
+            }
+    );
 });
+
+
+var postAction = {
+    btnSearchClick: function() {
+        $('#MyTableContainer').jtable(
+                'load',
+                {
+                    cmd: 1,
+                    title: $("#articletitle").val(),
+                    type: $("#menuselect").val()
+                }
+        );
+        console.log("Searching");
+    }
+
+};

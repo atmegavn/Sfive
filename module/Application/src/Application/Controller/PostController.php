@@ -22,17 +22,37 @@ class PostController extends BaseController {
 
     public function listAction() {
         $contentModel = new Model\ContentModel($GLOBALS['em']);
-        $data = $contentModel->findAll();
+
+        $cmd = $this->getRequest()->getPost('cmd');
+        $title = $this->getRequest()->getPost('title');
+        $type = $this->getRequest()->getPost('type');
+        $db = $contentModel->getQueryBuilder();
+        $db->addOrderBy('TblContent.id', 'DESC');
+        switch ($cmd) {
+            //load đề tài của current userr
+            case 0:
+                break;
+            //nút tìm kiếm
+            case 1:
+                $db->andWhere("TblContent.title like '%" . $title . "%'");
+                if ($type != null) {
+                    $db->andWhere("TblContent.catid= " . $type);
+                }
+                break;
+        }
         $items = array();
+        $data = $contentModel->getQueryResult();
         foreach ($data as $idata) {
             $item['id'] = $idata->getId();
             $item['title'] = $idata->getTitle();
             $item['created'] = $idata->getCreated()->format('d-M-Y');
             $item['introText'] = strip_tags($idata->getIntrotext());
+//            $item['fullText'] = strip_tags($idata->getFulltext());
             $items[] = $item;
         }
         $result = array('Result' => 'OK', 'Records' => $items);
-        return new JsonModel($result);
+        $json = new JsonModel($result);
+        return $json;
     }
 
 }

@@ -34,7 +34,7 @@ $(document).ready(function() {
         }
     });
     layoutAction.run_marquee();
-    layoutAction.skyper_init();
+    //layoutAction.skyper_init();
 });
 
 var layoutAction = {

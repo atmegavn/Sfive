@@ -4,12 +4,21 @@
 
 <div id="MyTableContainer">
     <div class="filtering" >
-        <form>
-            <?php
-            echo $this->formRow($this->form->get('title'));
-            echo $this->formRow($this->form->get('menu'));
-            ?>
-            <button type="submit" id="LoadRecordsButton">Load records</button>
-        </form>
+        <table>
+            <tr>
+                <td>
+                    <?php
+                    echo $this->formRow($this->form->get('title'));
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    echo $this->formRow($this->form->get('menu'));
+                    ?>
+                </td>
+                <td><input id="articlesearch" onclick="postAction.btnSearchClick()" type="button" class="sfive-button ui-corner-all" value="Tìm kiếm"></td>
+            </tr>
+        </table>
+
     </div>
 </div>

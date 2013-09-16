@@ -13,11 +13,14 @@ class ContentForm extends Form {
     public function __construct($name = "postContentForm", $options = array()) {
         parent::__construct($name, $options);
         $this->add(array(
+            'type' => 'Text',
             'name' => 'title',
             'options' => array(
                 'label' => 'Tên bài viết: ',
             ),
-            'type' => 'Text',
+            'attributes' => array(
+                'id' => 'articletitle',
+            )
         ));
         $this->add(array(
             'type' => 'DoctrineModule\Form\Element\ObjectSelect',
@@ -29,6 +32,9 @@ class ContentForm extends Form {
                 'target_class' => 'Application\Entity\TblContentTypes',
                 'property' => 'typeTitle'
             ),
+            'attributes' => array(
+                'id' => 'menuselect',
+            )
         ));
         $this->add(array(
             'type' => 'Zend\Form\Element\Textarea',
@@ -36,7 +42,9 @@ class ContentForm extends Form {
             'options' => array(
                 'label' => 'Intro cho bài viết: ',
             ),
-            'type' => 'text',
+            'attributes' => array(
+                'id' => 'introtext',
+            )
         ));
         $this->add(array(
             'type' => 'Zend\Form\Element\Textarea',
@@ -44,6 +52,9 @@ class ContentForm extends Form {
             'options' => array(
                 'label' => 'Nội dung:',
             ),
+            'attributes' => array(
+                'id' => 'fulltext',
+            )
         ));
     }
 

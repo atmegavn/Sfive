@@ -2,3 +2,24 @@
     height: 100px;
     width: 100%;
 }
+.sfive-button{
+    height: 30px;
+    background-color: #4d90fe;
+    border: 1px solid #3079ed;
+    color: #fff;
+}
+.sfive-button :hover{
+    background-color: #ff3300 !important;
+    color: #333333;
+}
+
+#MyTableContainer .filtering label{
+    font-weight: bold;
+}
+
+#articlesearch{
+    margin-top: 15px;
+}
+#articletitle{
+    width: 460px
+}
