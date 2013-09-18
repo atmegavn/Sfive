@@ -9,6 +9,8 @@
         <!-- Le styles -->
         <?php
         echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->prependStylesheet($this->basePath() . '/plugins/jquery-toastmessage-plugin/resources/css/jquery.toastmessage.css')
+                ->prependStylesheet($this->basePath() . '/plugins/jQuery-Validation/css/validationEngine.jquery.css')
                 ->prependStylesheet($this->basePath() . '/plugins/jtable/lib/themes/lightcolor/orange/jtable.css')
                 ->prependStylesheet($this->basePath() . '/plugins/apycom.com-15-orange/menu.css')
                 ->prependStylesheet($this->basePath() . '/css/layout.css')
@@ -19,6 +21,11 @@
         <!-- Scripts -->
         <?php
         echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->prependFile($this->basePath() . '/plugins/blockUI/jquery.blockUI.js')
+                ->prependFile($this->basePath() . '/plugins/jquery-toastmessage-plugin/javascript/jquery.toastmessage.js')
+                ->prependFile($this->basePath() . '/plugins/jQuery-Validation/js/languages/jquery.validationEngine-vi.js')
+                ->prependFile($this->basePath() . '/plugins/jQuery-Validation/js/jquery.validationEngine.js')
+                ->prependFile($this->basePath() . '/plugins/ckeditor/ckeditor.js')
                 ->prependFile($this->basePath() . '/plugins/jtable/lib/jquery.jtable.js')
                 ->prependFile($this->basePath() . '/plugins/jquery-slideshow/jquery.slides.js')
                 ->prependFile($this->basePath() . '/plugins/apycom.com-15-orange/menu.js')

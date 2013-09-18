@@ -8,7 +8,7 @@ use Zend\View\Model\JsonModel;
 use Application\Controller\BaseController;
 use Application\Model;
 
-class PostController extends BaseController {
+class ArticlesController extends BaseController {
 
     //put your code here
     public function indexAction() {
@@ -22,7 +22,6 @@ class PostController extends BaseController {
 
     public function listAction() {
         $contentModel = new Model\ContentModel($GLOBALS['em']);
-
         $cmd = $this->getRequest()->getPost('cmd');
         $title = $this->getRequest()->getPost('title');
         $type = $this->getRequest()->getPost('type');
@@ -53,6 +52,21 @@ class PostController extends BaseController {
         $result = array('Result' => 'OK', 'Records' => $items);
         $json = new JsonModel($result);
         return $json;
+    }
+
+    public function createAction() {
+        $content = new \Application\Form\CreateContentform();
+        $viewModel = new ViewModel(array(
+            'crform' => $content
+        ));
+        //$viewModel->setTerminal(true);
+        return $viewModel;
+    }
+
+    public function addAction() {
+        $reg = $this->getRequest();
+        $result = array("result" => "OK");
+        return new JsonModel($result);
     }
 
 }

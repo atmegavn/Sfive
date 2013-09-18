@@ -21,6 +21,7 @@ var vnMessages = {
 
 $(document).ready(function() {
     console.log("post ready12");
+    $isRunMar = false;
     $("#left-menu").hide();
     $("#right-menu").hide();
     $("#entry").css("width", "100%");
@@ -36,17 +37,14 @@ $(document).ready(function() {
         multiselect: true, //Allow multiple selecting
         selectingCheckboxes: true, //Show checkboxes on first column
         actions: {
-            listAction: '/Sfive/public/application/post/list',
-//            deleteAction: '/Sfive/public/application/post/delete',
-//            updateAction: '/Sfive/public/application/post/update',
-//            createAction: '/Sfive/public/application/post/create'
+            listAction: '/Sfive/public/application/articles/list',
         },
         toolbar: {
             items: [
                 {
                     text: 'Đăng bài',
                     click: function() {
-                        alert("Đăng bài viết");
+                        document.location.href = "/Sfive/public/application/articles/create";
                     }
                 },
                 {
@@ -125,6 +123,36 @@ var postAction = {
                 }
         );
         console.log("Searching");
-    }
+    },
+    createNew: function() {
+        CKEDITOR.instances.cr_introtext.updateElement();
+        CKEDITOR.instances.cr_fulltext.updateElement();
+        var serialize = $('form.formArticle').serialize();
+        console.log("thanh debug:");
+        console.log(serialize);
+        //formAction.addLoadding();
+        if ($('form.formArticle').validationEngine('validate', {promptPosition: "bottomLeft"})) {
+            $.ajax({
+                url: "/Sfive/public/application/articles/add",
+                type: "post",
+                data: serialize,
+                beforeSend: function() {
+                    layoutAction.addLoading();
+                },
+                success: function(result) {
+                    layoutAction.removeLoading();
+                    console.log("Đăng ký đề tài:" + result['result']);
+                }
+            });
+        }
 
+    },
+    makeEditor: function(name, height) {
+        CKEDITOR.replace(name, {
+            fullpage: true,
+            height: height,
+            resizable: 'false'
+        });
+        CKEDITOR.config.resize_enabled = false;
+    }
 };

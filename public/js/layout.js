@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $isRunMar = true;
     console.log("loading ready");
     //$("#content").height($("#entry").height()+100);
     $("#accordion").accordion({
@@ -33,24 +34,26 @@ $(document).ready(function() {
             }
         }
     });
-    layoutAction.run_marquee();
+    //layoutAction.run_marquee();
     //layoutAction.skyper_init();
 });
 
 var layoutAction = {
     run_marquee: function() {
-        $left = parseInt($("#runtext").css('left'));
-        console.log($("#runtext").css('left'));
-        $wid = 0 - $("#runtext").width();
-        $txt = $("#runtext span").text();
-        setInterval(function() {
-            $left = $left - 1;
-            if ($left == $wid) {
-                $left = 1000;
-            }
-            //console.log($left);
-            $("#runtext").css('left', $left);
-        }, 20);
+        if ($isRunMar) {
+            $left = parseInt($("#runtext").css('left'));
+            console.log($("#runtext").css('left'));
+            $wid = 0 - $("#runtext").width();
+            $txt = $("#runtext span").text();
+            setInterval(function() {
+                $left = $left - 1;
+                if ($left == $wid) {
+                    $left = 1000;
+                }
+                $("#runtext").css('left', $left);
+            }, 30);
+        }
+
     },
     skyper_init: function() {
         Skype.ui({
@@ -65,5 +68,43 @@ var layoutAction = {
             "participants": ["atmegavn"],
             "imageSize": 12
         });
+    },
+    sendMessage: function(type, text, time) {
+        if (time == null) {
+            $().toastmessage('showToast', {
+                text: text,
+                sticky: false,
+                position: 'bottom-left',
+                type: type,
+                stayTime: 2000
+            });
+        } else {
+            $().toastmessage('showToast', {
+                text: text,
+                sticky: true,
+                position: 'bottom-left',
+                type: type,
+                stayTime: time
+            });
+        }
+
+    },
+    sendSuccesMessage: function($text, $time) {
+        layoutAction.sendMessage("success", $text, $time);
+    },
+    sendErrorMessage: function($text, $time) {
+        layoutAction.sendMessage("error", $text, $time);
+    },
+    sendNoticeMessage: function($text, $time) {
+        layoutAction.sendMessage("notice", $text, $time);
+    },
+    sendWarningMessage: function($text, $time) {
+        layoutAction.sendMessage("warning", $text, $time);
+    },
+    addLoading: function() {
+        $.blockUI({message: '<h1><img style="height: 30px" src="/Sfive/public/img/loading1.gif"/></h1>'});
+    },
+    removeLoading: function() {
+        $.unblockUI();
     }
 };

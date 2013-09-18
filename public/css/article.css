@@ -23,3 +23,19 @@
 #articletitle{
     width: 460px
 }
+
+label{
+    font-weight: bold; 
+}
+
+.sfive-header{
+    height: 30px;
+    width: 99%;
+    text-align: center;
+}
+
+.sfive-footer{
+    height: 30px;
+    width: 99%;
+    text-align: center;
+}

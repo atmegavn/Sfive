@@ -1,7 +1,8 @@
-<script type="text/javascript" src="/Sfive/public/js/post.js"></script>
-<link href="/Sfive/public/css/post.css" media="screen" rel="stylesheet" type="text/css">
 
+<script type="text/javascript" src="/Sfive/public/js/article.js"></script>
 
+<link href="/Sfive/public/css/article.css" media="screen" rel="stylesheet" type="text/css">
+<input id="basePath" hidden="true" value="<?php echo $this->basePath() ?>">
 <div id="MyTableContainer">
     <div class="filtering" >
         <table>
@@ -16,7 +17,7 @@
                     echo $this->formRow($this->form->get('menu'));
                     ?>
                 </td>
-                <td><input id="articlesearch" onclick="postAction.btnSearchClick()" type="button" class="sfive-button ui-corner-all" value="Tìm kiếm"></td>
+                <td><input id="articlesearch" onclick="postAction.btnSearchClick();" type="button" class="sfive-button ui-corner-all" value="Tìm kiếm"></td>
             </tr>
         </table>
 

@@ -1,0 +1,43 @@
+<script type="text/javascript" src="/Sfive/public/js/article.js"></script>
+<link href="/Sfive/public/css/article.css" media="screen" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+
+    $(document).ready(function() {
+        console.log("post done!");
+        $("#left-menu").hide();
+        $("#right-menu").hide();
+        $("#entry").css("width", "100%");
+        $("#entry").css("margin-top", "10px");
+        $("#banner").hide();
+        $("#runtext").hide();
+        postAction.makeEditor("cr_introtext");
+        postAction.makeEditor("cr_fulltext", 600);
+    });
+</script>
+<div class="sfive-header ui-widget-header ui-corner-top">Đăng bài viết mới</div>
+<form  method="post" class="formArticle">
+    <div class="filtering" >
+        <table>
+            <tr>
+                <td>
+                    <?php
+                    echo $this->formRow($this->crform->get('title'));
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    echo $this->formRow($this->crform->get('menu'));
+                    ?>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <?php
+    echo $this->formRow($this->crform->get('intro'));
+    echo $this->formRow($this->crform->get('content'));
+    ?>
+</form>
+<div class="sfive-footer ui-widget-header ui-corner-bottom">
+    <input id="btn_post" type="button" value="Đăng tin" onclick="postAction.createNew();">
+    <input id="btn_cancel" type="button" value="Hủy">
+</div>
