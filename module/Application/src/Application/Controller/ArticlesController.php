@@ -55,7 +55,7 @@ class ArticlesController extends BaseController {
     }
 
     public function createAction() {
-        $content = new \Application\Form\CreateContentform();
+        $content = new \Application\Form\CreateContentform('contentForm', array(), $GLOBALS['em']);
         $viewModel = new ViewModel(array(
             'crform' => $content
         ));
@@ -64,8 +64,24 @@ class ArticlesController extends BaseController {
     }
 
     public function addAction() {
-        $reg = $this->getRequest();
-        $result = array("result" => "OK");
+        if ($this->getRequest()->isPost()) {
+            $form = new \Application\Form\CreateContentform('contentForm', array(), $GLOBALS['em']);
+            $contentModel = new Model\ContentModel($GLOBALS['em']);
+            $post = $this->getRequest()->getPost();
+            $entity = new \Application\Entity\Articles;
+            $form->bind($entity);
+            $form->setData($post);
+            if ($form->isValid()) {
+                $data = $form->getData();
+                $contentModel->save(null, $data);
+            } else {
+                $result = array("result" => "ERROR-Form");
+                return new JsonModel($result);
+            }
+            $result = array('result' => 'OK');
+        } else {
+            $result = array("result" => "ERROR");
+        }
         return new JsonModel($result);
     }
 

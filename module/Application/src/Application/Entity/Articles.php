@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Articles
  *
- * @ORM\Table(name="articles")
+ * @ORM\Table(name="articles", indexes={@ORM\Index(name="fk_articles_menu_idx", columns={"menu"}), @ORM\Index(name="fk_articles_system_users1_idx", columns={"system_users"})})
  * @ORM\Entity
  */
 class Articles
@@ -22,13 +22,6 @@ class Articles
     private $idarticles;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="menu_id", type="integer", nullable=false)
-     */
-    private $menuId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="contents", type="text", nullable=false)
@@ -38,9 +31,9 @@ class Articles
     /**
      * @var integer
      *
-     * @ORM\Column(name="is_host", type="integer", nullable=false)
+     * @ORM\Column(name="is_hot", type="integer", nullable=true)
      */
-    private $isHost;
+    private $isHot;
 
     /**
      * @var integer
@@ -52,7 +45,7 @@ class Articles
     /**
      * @var string
      *
-     * @ORM\Column(name="img_link", type="text", nullable=false)
+     * @ORM\Column(name="img_link", type="text", nullable=true)
      */
     private $imgLink;
 
@@ -73,7 +66,7 @@ class Articles
     /**
      * @var integer
      *
-     * @ORM\Column(name="poster_id", type="integer", nullable=false)
+     * @ORM\Column(name="poster_id", type="integer", nullable=true)
      */
     private $posterId;
 
@@ -83,6 +76,33 @@ class Articles
      * @ORM\Column(name="create_date", type="datetime", nullable=false)
      */
     private $createDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=200, nullable=true)
+     */
+    private $link;
+
+    /**
+     * @var \Application\Entity\Menu
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\Menu")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="menu", referencedColumnName="idmenu")
+     * })
+     */
+    private $menu;
+
+    /**
+     * @var \Application\Entity\SystemUsers
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\SystemUsers")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="system_users", referencedColumnName="idsystem_users")
+     * })
+     */
+    private $systemUsers;
 
 
 
@@ -94,29 +114,6 @@ class Articles
     public function getIdarticles()
     {
         return $this->idarticles;
-    }
-
-    /**
-     * Set menuId
-     *
-     * @param integer $menuId
-     * @return Articles
-     */
-    public function setMenuId($menuId)
-    {
-        $this->menuId = $menuId;
-
-        return $this;
-    }
-
-    /**
-     * Get menuId
-     *
-     * @return integer 
-     */
-    public function getMenuId()
-    {
-        return $this->menuId;
     }
 
     /**
@@ -143,26 +140,26 @@ class Articles
     }
 
     /**
-     * Set isHost
+     * Set isHot
      *
-     * @param integer $isHost
+     * @param integer $isHot
      * @return Articles
      */
-    public function setIsHost($isHost)
+    public function setIsHot($isHot)
     {
-        $this->isHost = $isHost;
+        $this->isHot = $isHot;
 
         return $this;
     }
 
     /**
-     * Get isHost
+     * Get isHot
      *
      * @return integer 
      */
-    public function getIsHost()
+    public function getIsHot()
     {
-        return $this->isHost;
+        return $this->isHot;
     }
 
     /**
@@ -301,5 +298,74 @@ class Articles
     public function getCreateDate()
     {
         return $this->createDate;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     * @return Articles
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string 
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Set menu
+     *
+     * @param \Application\Entity\Menu $menu
+     * @return Articles
+     */
+    public function setMenu(\Application\Entity\Menu $menu = null)
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
+    /**
+     * Get menu
+     *
+     * @return \Application\Entity\Menu 
+     */
+    public function getMenu()
+    {
+        return $this->menu;
+    }
+
+    /**
+     * Set systemUsers
+     *
+     * @param \Application\Entity\SystemUsers $systemUsers
+     * @return Articles
+     */
+    public function setSystemUsers(\Application\Entity\SystemUsers $systemUsers = null)
+    {
+        $this->systemUsers = $systemUsers;
+
+        return $this;
+    }
+
+    /**
+     * Get systemUsers
+     *
+     * @return \Application\Entity\SystemUsers 
+     */
+    public function getSystemUsers()
+    {
+        return $this->systemUsers;
     }
 }

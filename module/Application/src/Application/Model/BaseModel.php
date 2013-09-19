@@ -232,7 +232,7 @@ abstract class BaseModel extends EntityRepository {
     }
 
     private function fill($array, &$object) {
-        $hydrator = new \DoctrineORMModule\Stdlib\Hydrator\DoctrineEntity($this->_em);
+        $hydrator = new \DoctrineORMModule\Stdlib\Hydrator\DoctrineEntity($GLOBALS['em'],'Application\Entity\Articles');
         if (is_object($array)) {
 //            $array = $hydrator->extract($array);
             $object = $array;

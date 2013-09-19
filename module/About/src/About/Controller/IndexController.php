@@ -20,7 +20,7 @@ class IndexController extends BaseController {
         $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
         $data = $contentModel->findAll();
         $title = $data[0]->getTitle();
-        $content = $data[1]->getIntrotext();
+        $content = $data[0]->getContents();
         //$result = array();
         return new ViewModel(array(
             'title' => $title,

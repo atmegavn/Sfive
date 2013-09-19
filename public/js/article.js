@@ -141,7 +141,13 @@ var postAction = {
                 },
                 success: function(result) {
                     layoutAction.removeLoading();
-                    console.log("Đăng ký đề tài:" + result['result']);
+                    console.log("Result:" + result['result']);
+                    console.log("Data:" + result['data']);
+                    if (result['result'] == 'OK') {
+                        layoutAction.sendSuccesMessage("Đã đăng bài viết thành công");
+                    } else {
+                        layoutAction.sendErrorMessage("Không đăng bài được");
+                    }
                 }
             });
         }

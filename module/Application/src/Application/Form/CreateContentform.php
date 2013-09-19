@@ -7,61 +7,63 @@ use Zend\Form\Element;
 use Zend\Form\Fieldset;
 use Zend\Stdlib\Hydrator;
 
-class CreateContentform extends Form {
+class CreateContentform extends BaseForm {
 
-    //put your code here
-    public function __construct($name = "postContentForm", $options = array()) {
-        parent::__construct($name, $options);
-        $this->add(array(
-            'type' => 'Text',
-            'name' => 'title',
-            'options' => array(
-                'label' => 'Tên bài viết: ',
+    public function getElementsForPrepare() {
+        return array(
+            'title' => array(
+                'type' => 'Text',
+                'name' => 'title',
+                'options' => array(
+                    'label' => 'Tên bài viết: ',
+                ),
+                'attributes' => array(
+                    'id' => 'cr_title',
+                    'style' => 'width: 733px',
+                    'class' => 'validate[required]'
+                )
             ),
-            'attributes' => array(
-                'id' => 'cr_title',
-                'style' => 'width: 733px',
-                'class' => 'validate[required]'
-            )
-        ));
-        $this->add(array(
-            'type' => 'DoctrineModule\Form\Element\ObjectSelect',
-            'name' => 'menu',
-            'options' => array(
-                'label' => 'Menu chứa bài viết: ',
-                'empty_option' => '----Tất cả----',
-                'object_manager' => $GLOBALS['em'],
-                'target_class' => 'Application\Entity\TblContentTypes',
-                'property' => 'typeTitle'
+            'menu' => array(
+                'type' => 'DoctrineModule\Form\Element\ObjectSelect',
+                'name' => 'menu',
+                'options' => array(
+                    'label' => 'Menu chứa bài viết: ',
+                    'empty_option' => '----Tất cả----',
+                    'object_manager' => $GLOBALS['em'],
+                    'target_class' => 'Application\Entity\Menu',
+                    'property' => 'name'
+                ),
+                'attributes' => array(
+                    'id' => 'cr_menuselect',
+                    'class' => 'validate[required]'
+                )
             ),
-            'attributes' => array(
-                'id' => 'cr_menuselect',
-                'class' => 'validate[required]'
-            //'style' => 'width: 99%'
-            )
-        ));
-        $this->add(array(
-            'type' => 'Zend\Form\Element\Textarea',
-            'name' => 'intro',
-            'options' => array(
-                'label' => 'Intro cho bài viết: ',
+            'summary' => array(
+                'type' => 'Zend\Form\Element\Textarea',
+                'name' => 'summary',
+                'options' => array(
+                    'label' => 'Intro cho bài viết: ',
+                ),
+                'attributes' => array(
+                    'id' => 'cr_introtext',
+                )
             ),
-            'attributes' => array(
-                'id' => 'cr_introtext',
+            'contents' => array(
+                'type' => 'Zend\Form\Element\Textarea',
+                'name' => 'contents',
+                'options' => array(
+                    'label' => 'Nội dung:',
+                ),
+                'attributes' => array(
+                    'id' => 'cr_fulltext',
+                )
             )
-        ));
-        $this->add(array(
-            'type' => 'Zend\Form\Element\Textarea',
-            'name' => 'content',
-            'options' => array(
-                'label' => 'Nội dung:',
-            ),
-            'attributes' => array(
-                'id' => 'cr_fulltext',
-            )
-        ));
+        );
     }
-
+    
+    public function getTargetClass(){
+        return 'Application\Entity\Articles';
+    }
 }
 
 ?>
