@@ -30,7 +30,7 @@ class ContentForm extends Form {
                 'empty_option' => '----Tất cả----',
                 'object_manager' => $GLOBALS['em'],
                 'target_class' => 'Application\Entity\Menu',
-                'property' => 'typeTitle'
+                'property' => 'name'
             ),
             'attributes' => array(
                 'id' => 'menuselect',

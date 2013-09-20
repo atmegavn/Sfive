@@ -232,7 +232,8 @@ abstract class BaseModel extends EntityRepository {
     }
 
     private function fill($array, &$object) {
-        $hydrator = new \DoctrineORMModule\Stdlib\Hydrator\DoctrineEntity($GLOBALS['em'],'Application\Entity\Articles');
+        $targetClass = $this->getEntityClass();
+        $hydrator = new \DoctrineORMModule\Stdlib\Hydrator\DoctrineEntity($GLOBALS['em'],$targetClass);
         if (is_object($array)) {
 //            $array = $hydrator->extract($array);
             $object = $array;

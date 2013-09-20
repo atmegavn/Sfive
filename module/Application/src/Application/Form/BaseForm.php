@@ -6,7 +6,6 @@ use Zend\Form;
 use Zend\InputFilter\InputFilter;
 use Zend\InputFilter\Factory as InputFactory;
 
-
 abstract class BaseForm extends Form\Form {
 
     //put your code here
@@ -20,7 +19,7 @@ abstract class BaseForm extends Form\Form {
         $this->inputFilter = new InputFilter();
         $this->xfactory = new InputFactory();
         $targetClass = $this->getTargetClass();
-        $hydrat = new \DoctrineORMModule\Stdlib\Hydrator\DoctrineEntity($GLOBALS["em"],$targetClass);
+        $hydrat = new \DoctrineORMModule\Stdlib\Hydrator\DoctrineEntity($GLOBALS["em"], $targetClass);
         $this->setHydrator($hydrat);
 //        $this->prepare();
 
@@ -52,6 +51,12 @@ abstract class BaseForm extends Form\Form {
 //            }
 //        }
         //parent::prepare();
+    }
+
+    public function getValueOptions($criteria, $class) {
+        $model = new \Application\Model\EmptyModel(null, $class);
+        $result = $model->findBy($criteria);
+        return $result;
     }
 
     public function add($elementOrFieldset, array $flags = array()) {

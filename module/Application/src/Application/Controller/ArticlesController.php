@@ -26,26 +26,26 @@ class ArticlesController extends BaseController {
         $title = $this->getRequest()->getPost('title');
         $type = $this->getRequest()->getPost('type');
         $db = $contentModel->getQueryBuilder();
-        $db->addOrderBy('TblContent.id', 'DESC');
+        $db->addOrderBy('Articles.idarticles', 'DESC');
         switch ($cmd) {
             //load đề tài của current userr
             case 0:
                 break;
             //nút tìm kiếm
             case 1:
-                $db->andWhere("TblContent.title like '%" . $title . "%'");
+                $db->andWhere("Articles.title like '%" . $title . "%'");
                 if ($type != null) {
-                    $db->andWhere("TblContent.catid= " . $type);
+                    $db->andWhere("Articles.menu= " . $type);
                 }
                 break;
         }
         $items = array();
         $data = $contentModel->getQueryResult();
         foreach ($data as $idata) {
-            $item['id'] = $idata->getId();
+            $item['id'] = $idata->getIdarticles();
             $item['title'] = $idata->getTitle();
-            $item['created'] = $idata->getCreated()->format('d-M-Y');
-            $item['introText'] = strip_tags($idata->getIntrotext());
+            $item['created'] = "ok"; //$idata->getCreated()->format('d-M-Y');
+            $item['introText'] = strip_tags($idata->getSummary());
 //            $item['fullText'] = strip_tags($idata->getFulltext());
             $items[] = $item;
         }
@@ -82,6 +82,12 @@ class ArticlesController extends BaseController {
         } else {
             $result = array("result" => "ERROR");
         }
+        return new JsonModel($result);
+    }
+
+    public function menuChangeAction() {
+        $pid = $this->getRequest()->getPost('parent_menu');
+        $result = array('result' => 'OK', 'data' => $pid);
         return new JsonModel($result);
     }
 

@@ -160,5 +160,27 @@ var postAction = {
             resizable: 'false'
         });
         CKEDITOR.config.resize_enabled = false;
+    },
+    parentMenuChange: function() {
+        console.log("Change");
+        data = $("#cr_menuselect").serialize();
+        $.ajax({
+            url: "/Sfive/public/application/articles/menuChange",
+            type: "post",
+            data: data,
+            beforeSend: function() {
+                layoutAction.addLoading();
+            },
+            success: function(result) {
+                layoutAction.removeLoading();
+                console.log("Result:" + result['result']);
+                console.log("Data:" + result['data']);
+                if (result['result'] == 'OK') {
+                    layoutAction.sendSuccesMessage("OK " + result['data']);
+                } else {
+                    layoutAction.sendErrorMessage("Error");
+                }
+            }
+        });
     }
 };

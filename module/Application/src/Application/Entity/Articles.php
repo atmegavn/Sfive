@@ -31,16 +31,16 @@ class Articles
     /**
      * @var integer
      *
-     * @ORM\Column(name="is_hot", type="integer", nullable=true)
+     * @ORM\Column(name="is_hotnew", type="integer", nullable=false)
      */
-    private $isHot;
+    private $isHotnew;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="is_online", type="integer", nullable=false)
+     * @ORM\Column(name="is_public", type="integer", nullable=false)
      */
-    private $isOnline;
+    private $isPublic;
 
     /**
      * @var string
@@ -62,13 +62,6 @@ class Articles
      * @ORM\Column(name="title", type="string", length=500, nullable=false)
      */
     private $title;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="poster_id", type="integer", nullable=true)
-     */
-    private $posterId;
 
     /**
      * @var \DateTime
@@ -140,49 +133,49 @@ class Articles
     }
 
     /**
-     * Set isHot
+     * Set isHotnew
      *
-     * @param integer $isHot
+     * @param integer $isHotnew
      * @return Articles
      */
-    public function setIsHot($isHot)
+    public function setIsHotnew($isHotnew)
     {
-        $this->isHot = $isHot;
+        $this->isHotnew = $isHotnew;
 
         return $this;
     }
 
     /**
-     * Get isHot
+     * Get isHotnew
      *
      * @return integer 
      */
-    public function getIsHot()
+    public function getIsHotnew()
     {
-        return $this->isHot;
+        return $this->isHotnew;
     }
 
     /**
-     * Set isOnline
+     * Set isPublic
      *
-     * @param integer $isOnline
+     * @param integer $isPublic
      * @return Articles
      */
-    public function setIsOnline($isOnline)
+    public function setIsPublic($isPublic)
     {
-        $this->isOnline = $isOnline;
+        $this->isPublic = $isPublic;
 
         return $this;
     }
 
     /**
-     * Get isOnline
+     * Get isPublic
      *
      * @return integer 
      */
-    public function getIsOnline()
+    public function getIsPublic()
     {
-        return $this->isOnline;
+        return $this->isPublic;
     }
 
     /**
@@ -252,29 +245,6 @@ class Articles
     public function getTitle()
     {
         return $this->title;
-    }
-
-    /**
-     * Set posterId
-     *
-     * @param integer $posterId
-     * @return Articles
-     */
-    public function setPosterId($posterId)
-    {
-        $this->posterId = $posterId;
-
-        return $this;
-    }
-
-    /**
-     * Get posterId
-     *
-     * @return integer 
-     */
-    public function getPosterId()
-    {
-        return $this->posterId;
     }
 
     /**
