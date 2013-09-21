@@ -8,24 +8,28 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application\Controller;
+namespace Discoversfive\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 use Application\Controller\BaseController;
-use Application\Model\MenuModel;
+use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 
 class IndexController extends BaseController {
 
-    public function initMenu() {
-        $model = new MenuModel($GLOBALS['em']);
-        return $model->findAll();
-    }
-
     public function indexAction() {
         return new ViewModel(array(
-            'title' => 'Chức năng đăng phát triển, vui lòng quay lại sau',
-            'skyper' =>'atmegavn'
+            'title' => "Không có bài viết nào trong mục này",
+        ));
+    }
+
+    public function aboutAction() {
+        
+    }
+
+    public function whoweareAction() {
+        $title = "Who we are?";
+        return new ViewModel(array(
+            'title' => $title
         ));
     }
 

@@ -18,7 +18,7 @@ class IndexController extends BaseController {
 
     public function indexAction() {
         $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
-        $data = $contentModel->findAll();
+        $data = $contentModel->findBy(array('menu' => 11));
         $title = $data[0]->getTitle();
         $content = $data[0]->getContents();
         //$result = array();

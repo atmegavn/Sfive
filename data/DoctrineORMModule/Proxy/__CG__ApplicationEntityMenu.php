@@ -64,10 +64,10 @@ class Menu extends \Application\Entity\Menu implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', 'idmenu', 'name', 'parent');
+            return array('__isInitialized__', 'idmenu', 'name', 'parent', 'position');
         }
 
-        return array('__isInitialized__', 'idmenu', 'name', 'parent');
+        return array('__isInitialized__', 'idmenu', 'name', 'parent', 'position');
     }
 
     /**
@@ -230,6 +230,28 @@ class Menu extends \Application\Entity\Menu implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParent', array());
 
         return parent::getParent();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPosition($position)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPosition', array($position));
+
+        return parent::setPosition($position);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPosition()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPosition', array());
+
+        return parent::getPosition();
     }
 
 }

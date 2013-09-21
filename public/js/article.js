@@ -175,11 +175,12 @@ var postAction = {
                 layoutAction.removeLoading();
                 console.log("Result:" + result['result']);
                 console.log("Data:" + result['data']);
-                if (result['result'] == 'OK') {
-                    layoutAction.sendSuccesMessage("OK " + result['data']);
-                } else {
-                    layoutAction.sendErrorMessage("Error");
-                }
+                $("select[name=menu]").empty();
+                //$("select[name=newsType]").append('<option value="" > Tất cả </option>');
+                $.each(result['data'], function(key, value) {
+                    console.log(key, value);
+                    $("select[name=menu]").append('<option value="' + key + '" >' + value + '</option>');
+                });
             }
         });
     }

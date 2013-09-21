@@ -35,6 +35,13 @@ class Menu
      */
     private $parent;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="position", type="integer", nullable=true)
+     */
+    private $position;
+
 
 
     /**
@@ -91,5 +98,28 @@ class Menu
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     * @return Menu
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer 
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

@@ -65,7 +65,7 @@ class ArticlesController extends BaseController {
 
     public function addAction() {
         if ($this->getRequest()->isPost()) {
-            $form = new \Application\Form\CreateContentform('contentForm', array(), $GLOBALS['em']);
+            $form = new \Application\Form\ContentForm('contentForm', array(), $GLOBALS['em']);
             $contentModel = new Model\ContentModel($GLOBALS['em']);
             $post = $this->getRequest()->getPost();
             $entity = new \Application\Entity\Articles;
@@ -87,7 +87,17 @@ class ArticlesController extends BaseController {
 
     public function menuChangeAction() {
         $pid = $this->getRequest()->getPost('parent_menu');
-        $result = array('result' => 'OK', 'data' => $pid);
+        $menuModel = new \Application\Model\MenuModel($GLOBALS['em']);
+        $menu = $menuModel->findBy(array('parent' => $pid));
+        $items = array();
+        if (sizeof($menu) > 0) {
+            foreach ($menu as $imenu) {
+                $items[$imenu->getIdmenu()] = $imenu->getName();
+            }
+        }else{
+            
+        }
+        $result = array('result' => 'OK', 'data' => $items);
         return new JsonModel($result);
     }
 
