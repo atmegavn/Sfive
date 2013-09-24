@@ -8,25 +8,17 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Application\Controller;
+namespace Register\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 use Application\Controller\BaseController;
-use Application\Model\MenuModel;
+use Zend\View\Model\ViewModel;
+use Zend\View\Model\JsonModel;
 
 class IndexController extends BaseController {
 
-    public function initMenu() {
-        $model = new MenuModel($GLOBALS['em']);
-        return $model->findAll();
-    }
-
     public function indexAction() {
-        $this->view->pageTitle = "Zend Layout Example";
         return new ViewModel(array(
-            'title' => 'Chức năng đăng phát triển, vui lòng quay lại sau',
-            'skyper' => 'atmegavn'
+            'title' => "Đăng ký thông tin",
         ));
     }
 

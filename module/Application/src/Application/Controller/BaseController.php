@@ -17,6 +17,7 @@ class BaseController extends AbstractActionController {
                 $this->em = $GLOBALS["em"];
             }
         }
+
         return $this->em;
     }
 
@@ -24,6 +25,9 @@ class BaseController extends AbstractActionController {
         if (!isset($GLOBALS["em"])) {
             $GLOBALS["em"] = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
         }
+        $parModel = new \Application\Model\ParamaterModel($GLOBALS["em"]);
+        $par = $parModel->find(1);
+        $GLOBALS['key'] = $par->getKey();
         parent::dispatch($request, $response);
     }
 

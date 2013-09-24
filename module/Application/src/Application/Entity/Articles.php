@@ -24,21 +24,35 @@ class Articles
     /**
      * @var string
      *
+     * @ORM\Column(name="title", type="string", length=500, nullable=false)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="contents", type="text", nullable=false)
      */
     private $contents;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="create_date", type="datetime", nullable=true)
+     */
+    private $createDate;
+
+    /**
      * @var integer
      *
-     * @ORM\Column(name="is_hotnew", type="integer", nullable=false)
+     * @ORM\Column(name="is_hotnew", type="integer", nullable=true)
      */
     private $isHotnew;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="is_public", type="integer", nullable=false)
+     * @ORM\Column(name="is_public", type="integer", nullable=true)
      */
     private $isPublic;
 
@@ -55,20 +69,6 @@ class Articles
      * @ORM\Column(name="summary", type="text", nullable=false)
      */
     private $summary;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="title", type="string", length=500, nullable=false)
-     */
-    private $title;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="create_date", type="datetime", nullable=false)
-     */
-    private $createDate;
 
     /**
      * @var string
@@ -110,6 +110,29 @@ class Articles
     }
 
     /**
+     * Set title
+     *
+     * @param string $title
+     * @return Articles
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
      * Set contents
      *
      * @param string $contents
@@ -130,6 +153,29 @@ class Articles
     public function getContents()
     {
         return $this->contents;
+    }
+
+    /**
+     * Set createDate
+     *
+     * @param \DateTime $createDate
+     * @return Articles
+     */
+    public function setCreateDate($createDate)
+    {
+        $this->createDate = $createDate;
+
+        return $this;
+    }
+
+    /**
+     * Get createDate
+     *
+     * @return \DateTime 
+     */
+    public function getCreateDate()
+    {
+        return $this->createDate;
     }
 
     /**
@@ -222,52 +268,6 @@ class Articles
     public function getSummary()
     {
         return $this->summary;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     * @return Articles
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string 
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set createDate
-     *
-     * @param \DateTime $createDate
-     * @return Articles
-     */
-    public function setCreateDate($createDate)
-    {
-        $this->createDate = $createDate;
-
-        return $this;
-    }
-
-    /**
-     * Get createDate
-     *
-     * @return \DateTime 
-     */
-    public function getCreateDate()
-    {
-        return $this->createDate;
     }
 
     /**

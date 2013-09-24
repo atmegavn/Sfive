@@ -37,6 +37,16 @@
         <script type="text/javascript" src="http://cdn.dev.skype.com/uri/skype-uri.js"></script>
     </head>
     <body style="background-color: rgb(112, 112, 111)">
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
         <div id="pages">
             <div id="logo" ></div>
             <div id="menu">
@@ -60,7 +70,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li><a href="<?php echo $this->url('about') ?>"><span>Góc tài liệu</span></a>
+                    <li><a href="<?php echo $this->url('application') ?>"><span>Góc tài liệu</span></a>
 
                     </li>
                     <li class="last"><a href="<?php echo $this->url('application') ?>"><span>Liên hệ & Tuyển dụng</span></a></li>
@@ -123,7 +133,7 @@
                     </div>
                 </div>
                 <div id="entry" class="ui-widget-content">
-                    <?php echo $this->content; ?>
+<?php echo $this->content; ?>
                 </div>
                 <div id="right-menu" >
                     <div id="shedule" style="width: 100%;" class="ui-widget-content ui-corner-all">
@@ -132,7 +142,7 @@
                         </div>
                         <div id="menu-schedule">
                             <ul class="jquery-menu">
-                                <li><a href="<?php echo $this->url('application') ?>"><span>Lịch khai giảng</span></a></li>
+                                <li><a href="<?php echo $this->url('events') . "lich_khai_giang" ?>"><span>Lịch khai giảng</span></a></li>
                                 <li><a href="<?php echo $this->url('application') ?>" ><span>CLB tiếng Anh Sfive</span></a>
                                 </li>
                                 <li><a href="<?php echo $this->url('application') ?>" ><span>Lớp học tăng cường</span></a>
@@ -153,9 +163,6 @@
                                 <td>
                                     Ms.Hoài
                                 </td>
-                                <td>
-                                    0973578770
-                                </td>
                                 <td id="thuhoai0810">
                                     <div id="SkypeButton_Chat_thuhoai0810_1">
                                         <script type="text/javascript">
@@ -174,30 +181,6 @@
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    Mr.Thành
-                                </td>
-                                <td>
-                                    0973578770
-                                </td>
-                                <td id="atmegavn">
-                                    <div id="SkypeButton_Chat_atmegavn_1">
-                                        <script type="text/javascript">
-                                            Skype.ui({
-                                                "name": "chat",
-                                                "element": "SkypeButton_Chat_atmegavn_1",
-                                                "participants": ["atmegavn"],
-                                                "imageSize": 14
-                                            });
-                                        </script>
-                                    </div>
-                                <td>
-                                    <a href="ymsgr:sendIM?lethanh0502">
-                                        <img style="padding-bottom: 7px;" src="http://opi.yahoo.com/online?u=lethanh0502&m=g&t=0" border="0" alt="" />
-                                    </a>
-                                </td>
-                            </tr>
                         </table>
                     </div>
                 </div>
@@ -210,5 +193,5 @@
         </div>
         <div hidden="true" id="copyright">Copyright &copy; 2013 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>
     </body>
-    <?php echo $this->inlineScript() ?>
+<?php echo $this->inlineScript() ?>
 </html>

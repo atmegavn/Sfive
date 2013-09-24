@@ -45,10 +45,21 @@ $(document).ready(function() {
         multiselect: false, //Allow multiple selecting
         selectingCheckboxes: true, //Show checkboxes on first column
         actions: {
-            listAction: '/Sfive/public/application/articles/list'
+            listAction: '/Sfive/public/application/articles/list',
+            // deleteAction: '/Sfive/public/application/articles/delete'
         },
         toolbar: {
             items: [
+                {
+                    text: 'Xem bài viết',
+                    click: function() {
+                        if ($size == 1) {
+                            document.location.href = "/Sfive/public/articles/detail/" + $id;
+                        } else {
+                            alert("Xin mời chọn một tin");
+                        }
+                    }
+                },
                 {
                     text: 'Đăng bài',
                     click: function() {
@@ -69,7 +80,29 @@ $(document).ready(function() {
                 {
                     text: 'Xóa bài viết',
                     click: function() {
-                        alert("Xóa bài viết");
+                        console.log("Xóa bài viết");
+                        if ($size == 1) {
+                            $.ajax({
+                                url: "/Sfive/public/application/articles/delete",
+                                type: "post",
+                                data: "id=" + $id,
+                                beforeSend: function() {
+                                    layoutAction.addLoading();
+                                },
+                                success: function(result) {
+                                    console.log("Result:" + result['result']);
+                                    if (result['result'] == 'OK') {
+                                        layoutAction.sendSuccesMessage("Đã xóa");
+                                    } else {
+                                        layoutAction.sendErrorMessage("Không xóa được");
+                                    }
+                                    $('#MyTableContainer').jtable('load');
+                                    //layoutAction.removeLoading();
+                                }
+                            });
+                        } else {
+                            alert("Xin mời chọn một tin");
+                        }
                     }
                 }]
         },
@@ -84,10 +117,10 @@ $(document).ready(function() {
                 title: "Tên bài viết",
                 width: '30%'
             },
-            created: {
-                title: "Ngày tạo",
+            menu: {
+                title: "Mục",
                 width: '20%',
-                sorting: false
+                sorting: true
             },
             introText: {
                 title: "Nội dung tóm tắt",

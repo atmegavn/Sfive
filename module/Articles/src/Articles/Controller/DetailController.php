@@ -22,7 +22,8 @@ class DetailController extends BaseController {
         }
         return new ViewModel(array(
             'title' => $title,
-            'content' => $content
+            'content' => $content,
+            'id' => $key
         ));
     }
 

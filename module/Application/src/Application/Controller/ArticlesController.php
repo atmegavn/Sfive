@@ -10,18 +10,26 @@ use Application\Model;
 
 class ArticlesController extends BaseController {
 
+    public function getModel() {
+        return new Model\ContentModel($GLOBALS['em']);
+    }
+
     //put your code here
     public function indexAction() {
-        $content = new \Application\Form\ContentfilterForm('contentForm', array(), $GLOBALS['em']);
-        $viewModel = new ViewModel(array(
-            'title' => 'Quản lý bài viết123',
-            'form' => $content
-        ));
-        return $viewModel;
+        $key = $this->getRequest()->getQuery('authkey');
+        if ($key == $GLOBALS['key']) {
+            $content = new \Application\Form\ContentfilterForm('contentForm', array(), $GLOBALS['em']);
+            $viewModel = new ViewModel(array(
+                'form' => $content
+            ));
+            return $viewModel;
+        } else {
+            return new JsonModel(array('result' => 'Authenticate false'));
+        }
     }
 
     public function listAction() {
-        $contentModel = new Model\ContentModel($GLOBALS['em']);
+        $contentModel = $this->getModel();
         $cmd = $this->getRequest()->getPost('cmd');
         $title = $this->getRequest()->getPost('title');
         $type = $this->getRequest()->getPost('type');
@@ -44,7 +52,7 @@ class ArticlesController extends BaseController {
         foreach ($data as $idata) {
             $item['id'] = $idata->getIdarticles();
             $item['title'] = $idata->getTitle();
-            $item['created'] = "ok"; //$idata->getCreated()->format('d-M-Y');
+            $item['menu'] = $idata->getMenu()->getName();
             $item['introText'] = strip_tags($idata->getSummary());
 //            $item['fullText'] = strip_tags($idata->getFulltext());
             $items[] = $item;
@@ -56,7 +64,7 @@ class ArticlesController extends BaseController {
 
     public function createAction() {
         $key = $this->getRequest()->getQuery('authkey');
-        if ($key == "COuF2JS4wsPYZA") {
+        if ($key == $GLOBALS['key']) {
             $content = new \Application\Form\CreateContentform('contentForm', array(), $GLOBALS['em']);
             $viewModel = new ViewModel(array(
                 'crform' => $content
@@ -70,7 +78,7 @@ class ArticlesController extends BaseController {
     public function addAction() {
         if ($this->getRequest()->isPost()) {
             $form = new \Application\Form\ContentForm('contentForm', array(), $GLOBALS['em']);
-            $contentModel = new Model\ContentModel($GLOBALS['em']);
+            $contentModel = $this->getModel();
             $post = $this->getRequest()->getPost();
             $entity = new \Application\Entity\Articles;
             $form->bind($entity);
@@ -92,9 +100,9 @@ class ArticlesController extends BaseController {
     public function editAction() {
         $key = $this->getRequest()->getQuery('authkey');
         $id = $this->getRequest()->getQuery('id');
-        if ($key == "COuF2JS4wsPYZA") {
+        if ($key == $GLOBALS['key']) {
             $content = new \Application\Form\ContentDetailForm('contentForm', array(), $GLOBALS['em']);
-            $contentModel = new Model\ContentModel($GLOBALS['em']);
+            $contentModel = $this->getModel();
             $entity = $contentModel->find($id);
             $content->bind($entity);
             $viewModel = new ViewModel(array(
@@ -110,7 +118,7 @@ class ArticlesController extends BaseController {
     public function updateAction() {
         if ($this->getRequest()->isPost()) {
             $form = new \Application\Form\ContentForm('contentForm', array(), $GLOBALS['em']);
-            $contentModel = new Model\ContentModel($GLOBALS['em']);
+            $contentModel = $this->getModel();
             $post = $this->getRequest()->getPost();
             $id = $post['idarticles'];
             $entity = $contentModel->find($id);
@@ -127,6 +135,14 @@ class ArticlesController extends BaseController {
         } else {
             $result = array("result" => "ERROR");
         }
+        return new JsonModel($result);
+    }
+
+    public function deleteAction() {
+        $id = $this->getRequest()->getPost('id');
+        $model = $this->getModel();
+        $model->delete($id);
+        $result = array('result' => 'OK');
         return new JsonModel($result);
     }
 

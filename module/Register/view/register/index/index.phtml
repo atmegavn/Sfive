@@ -1,0 +1,14 @@
+<script>
+$(document).ready(function(){
+    console.log("Chúng tôi là ai");
+    $("#left-menu").hide();
+    $("#entry").width('75%');
+    layoutAction.run_marquee();
+});
+</script>
+<h2><?php echo $this->title ?></h2>
+<div>
+    <?php
+        echo $this->content
+    ?>
+</div>

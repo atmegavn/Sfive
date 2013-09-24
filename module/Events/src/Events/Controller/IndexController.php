@@ -8,7 +8,7 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace About\Controller;
+namespace Events\Controller;
 
 use Application\Controller\BaseController;
 use Zend\View\Model\ViewModel;
@@ -17,15 +17,13 @@ use Zend\View\Model\JsonModel;
 class IndexController extends BaseController {
 
     public function indexAction() {
-        $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
-        $data = $contentModel->findBy(array('menu' => 11));
-        $title = $data[0]->getTitle();
-        $content = $data[0]->getContents();
-        //$result = array();
         return new ViewModel(array(
-            'title' => $title,
-            'content' => $content
+            'title' => "Không có bài viết nào trong mục này",
         ));
+    }
+
+    public function aboutAction() {
+        
     }
 
     public function whoweareAction() {
