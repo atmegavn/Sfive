@@ -1,0 +1,47 @@
+<link href="/Sfive/public/css/article.css" media="screen" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/Sfive/public/js/article.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        console.log("edit ready!");
+        postAction.makeEditor("cr_introtext");
+        postAction.makeEditor("cr_fulltext", 600);
+    });
+</script>
+<div class="sfive-header ui-widget-header ui-corner-top">Đăng bài viết mới</div>
+
+<form  method="post" class="formArticle">
+    <div id="hiddendata" hidden="true">
+        <?php
+        echo $this->formRow($this->crform->get('idarticles'));
+        ?>
+    </div>
+    <div class="filtering" >
+        <table>
+            <tr>
+                <td>
+                    <?php
+                    echo $this->formRow($this->crform->get('title'));
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    echo $this->formRow($this->crform->get('parent_menu'));
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    echo $this->formRow($this->crform->get('menu'));
+                    ?>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <?php
+    echo $this->formRow($this->crform->get('summary'));
+    echo $this->formRow($this->crform->get('contents'));
+    ?>
+</form>
+<div class="sfive-footer ui-widget-header ui-corner-bottom">
+    <input id="btn_post" type="button" value="Lưu" onclick="postAction.editAction();">
+    <input id="btn_cancel" type="button" value="Hủy">
+</div>

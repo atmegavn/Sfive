@@ -2,7 +2,12 @@
 
 namespace Application\Form;
 
-class CreateContentform extends BaseForm {
+use Zend\Form\Form;
+use Zend\Form\Element;
+use Zend\Form\Fieldset;
+use Zend\Stdlib\Hydrator;
+
+class ContentDetailForm extends BaseForm {
 
     public function getTargetClass() {
         return 'Application\Entity\Articles';
@@ -21,6 +26,13 @@ class CreateContentform extends BaseForm {
             }
         }
         return array(
+            'idarticles' => array(
+                'type' => 'Text',
+                'name' => 'idarticles',
+                'attributes' => array(
+                    'hidden' => 'true',
+                )
+            ),
             'title' => array(
                 'type' => 'Text',
                 'name' => 'title',
@@ -55,13 +67,9 @@ class CreateContentform extends BaseForm {
                     'label' => 'Menu cha ',
                     'options' => $items_parent,
                     'empty_option' => '----Tất cả----',
-                //'object_manager' => $GLOBALS['em'],
-                //'target_class' => 'Application\Entity\Menu',
-                //'property' => 'name'
                 ),
                 'attributes' => array(
                     'id' => 'cr_menu_parent',
-                    //'class' => 'validate[required]',
                     'onchange' => 'postAction.parentMenuChange()'
                 )
             ),

@@ -44,13 +44,12 @@
                     <li><a href="<?php echo $this->url('home') ?>"><span>Trang chủ</span></a></li>
                     <li><a href="#"><span>Khám phá Sfive</span></a>
                         <div><ul>
-                                <li><a href="<?php echo $this->url('discoversfive')."about" ?>"><span>Chúng tôi là ai?</span></a></li>
-                                <li><a href="<?php echo $this->url('discoversfive')."whychoosesfive" ?>"><span>Tại sao chọn Sfive?</span></a></li>
-                                <li><a href="<?php echo $this->url('discoversfive')."teachers" ?>"><span>Đội ngũ giáo viên</span></a></li>
+                                <li><a href="<?php echo $this->url('discoversfive') . "about" ?>"><span>Chúng tôi là ai?</span></a></li>
+                                <li><a href="<?php echo $this->url('discoversfive') . "whychoosesfive" ?>"><span>Tại sao chọn Sfive?</span></a></li>
                             </ul></div>
                     </li>
-<!--                    <li><a href="<?php echo $this->url('application') ?>"><span>Đội ngũ giáo viên</span></a>
-                    </li>-->
+                    <li><a href="<?php echo $this->url('discoversfive') . "teachers" ?>"><span>Đội ngũ giáo viên</span></a>
+                    </li>
                     <li><a href="<?php echo $this->url('application') ?>" ><span>Góc học viên</span></a>
                         <div>
                             <ul>
@@ -123,7 +122,7 @@
                         <h3>Tiếng Anh theo yêu cầu</h3>
                     </div>
                 </div>
-                <div id="entry" class="ui-widget-content ui-corner-all">
+                <div id="entry" class="ui-widget-content">
                     <?php echo $this->content; ?>
                 </div>
                 <div id="right-menu" >
@@ -179,7 +178,7 @@
                                 <td>
                                     Mr.Thành
                                 </td>
-                                 <td>
+                                <td>
                                     0973578770
                                 </td>
                                 <td id="atmegavn">

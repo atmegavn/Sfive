@@ -2,7 +2,7 @@
 
 namespace Application\Form;
 
-class CreateContentform extends BaseForm {
+class ContentfilterForm extends BaseForm {
 
     public function getTargetClass() {
         return 'Application\Entity\Articles';
@@ -30,7 +30,8 @@ class CreateContentform extends BaseForm {
                 'attributes' => array(
                     'id' => 'cr_title',
                     'style' => 'width: 533px',
-                    'class' => 'validate[required]'
+                    'class' => 'validate[required]',
+                    'type' => 'search'
                 )
             ),
             'menu' => array(
@@ -44,8 +45,9 @@ class CreateContentform extends BaseForm {
                     'property' => 'name'
                 ),
                 'attributes' => array(
-                    'id' => 'cr_menuselect',
-                    'class' => 'validate[required]'
+                    'id' => 'cr_menu_son',
+                    'class' => 'validate[required]',
+                    'onchange' => 'postAction.btnSearchClick()'
                 )
             ),
             'parent_menu' => array(

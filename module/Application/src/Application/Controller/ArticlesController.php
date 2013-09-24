@@ -12,7 +12,7 @@ class ArticlesController extends BaseController {
 
     //put your code here
     public function indexAction() {
-        $content = new \Application\Form\ContentForm();
+        $content = new \Application\Form\ContentfilterForm('contentForm', array(), $GLOBALS['em']);
         $viewModel = new ViewModel(array(
             'title' => 'Quản lý bài viết123',
             'form' => $content
@@ -55,12 +55,16 @@ class ArticlesController extends BaseController {
     }
 
     public function createAction() {
-        $content = new \Application\Form\CreateContentform('contentForm', array(), $GLOBALS['em']);
-        $viewModel = new ViewModel(array(
-            'crform' => $content
-        ));
-        //$viewModel->setTerminal(true);
-        return $viewModel;
+        $key = $this->getRequest()->getQuery('authkey');
+        if ($key == "COuF2JS4wsPYZA") {
+            $content = new \Application\Form\CreateContentform('contentForm', array(), $GLOBALS['em']);
+            $viewModel = new ViewModel(array(
+                'crform' => $content
+            ));
+            return $viewModel;
+        } else {
+            return new JsonModel(array('result' => 'ERROR'));
+        }
     }
 
     public function addAction() {
@@ -85,6 +89,47 @@ class ArticlesController extends BaseController {
         return new JsonModel($result);
     }
 
+    public function editAction() {
+        $key = $this->getRequest()->getQuery('authkey');
+        $id = $this->getRequest()->getQuery('id');
+        if ($key == "COuF2JS4wsPYZA") {
+            $content = new \Application\Form\ContentDetailForm('contentForm', array(), $GLOBALS['em']);
+            $contentModel = new Model\ContentModel($GLOBALS['em']);
+            $entity = $contentModel->find($id);
+            $content->bind($entity);
+            $viewModel = new ViewModel(array(
+                'crform' => $content
+            ));
+            return $viewModel;
+        } else {
+            return new JsonModel(array('result' => 'ERROR'));
+        }
+    }
+
+    //cập nhật vào DB 
+    public function updateAction() {
+        if ($this->getRequest()->isPost()) {
+            $form = new \Application\Form\ContentForm('contentForm', array(), $GLOBALS['em']);
+            $contentModel = new Model\ContentModel($GLOBALS['em']);
+            $post = $this->getRequest()->getPost();
+            $id = $post['idarticles'];
+            $entity = $contentModel->find($id);
+            $form->bind($entity);
+            $form->setData($post);
+            if ($form->isValid()) {
+                $data = $form->getData();
+                $contentModel->save($id, $data);
+            } else {
+                $result = array("result" => "ERROR-Form");
+                return new JsonModel($result);
+            }
+            $result = array('result' => 'OK');
+        } else {
+            $result = array("result" => "ERROR");
+        }
+        return new JsonModel($result);
+    }
+
     public function menuChangeAction() {
         $pid = $this->getRequest()->getPost('parent_menu');
         $menuModel = new \Application\Model\MenuModel($GLOBALS['em']);
@@ -94,7 +139,7 @@ class ArticlesController extends BaseController {
             foreach ($menu as $imenu) {
                 $items[$imenu->getIdmenu()] = $imenu->getName();
             }
-        }else{
+        } else {
             
         }
         $result = array('result' => 'OK', 'data' => $items);

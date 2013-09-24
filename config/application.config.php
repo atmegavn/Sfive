@@ -8,7 +8,8 @@ return array(
         'DoctrineORMModule',
         'Home',
         'About',
-        'Discoversfive'
+        'Discoversfive',
+        'Articles'
     ),
     // These are various options for the listeners attached to the ModuleManager
     'module_listener_options' => array(

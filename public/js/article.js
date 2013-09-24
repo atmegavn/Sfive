@@ -20,6 +20,8 @@ var vnMessages = {
 };
 
 $(document).ready(function() {
+    $id = -1;                   //id của bài viết được select
+    $size = -1;
     console.log("post ready12");
     $isRunMar = false;
     $("#left-menu").hide();
@@ -28,29 +30,40 @@ $(document).ready(function() {
     $("#entry").css("margin-top", "10px");
     $("#banner").hide();
     $("#runtext").hide();
+    $("#cr_title").bind("keypress", function(e) {
+        var code = (e.keyCode ? e.keyCode : e.which);
+        if (code == 13) { //Enter keycode
+            postAction.btnSearchClick();
+        }
+    });
     $('#MyTableContainer').jtable({
         messages: vnMessages,
         paging: true,
         sorting: true,
         title: "Quản lý bài viết",
         selecting: true, //Enable selecting
-        multiselect: true, //Allow multiple selecting
+        multiselect: false, //Allow multiple selecting
         selectingCheckboxes: true, //Show checkboxes on first column
         actions: {
-            listAction: '/Sfive/public/application/articles/list',
+            listAction: '/Sfive/public/application/articles/list'
         },
         toolbar: {
             items: [
                 {
                     text: 'Đăng bài',
                     click: function() {
-                        document.location.href = "/Sfive/public/application/articles/create";
+                        document.location.href = "/Sfive/public/application/articles/create?authkey=COuF2JS4wsPYZA";
                     }
                 },
                 {
                     text: 'Sửa bài viết',
                     click: function() {
-                        alert("Sửa bài viết");
+                        console.log("Sửa bài viết");
+                        if ($size == 1) {
+                            document.location.href = "/Sfive/public/application/articles/edit?authkey=COuF2JS4wsPYZA&id=" + $id;
+                        } else {
+                            alert("Xin mời chọn một tin");
+                        }
                     }
                 },
                 {
@@ -85,11 +98,13 @@ $(document).ready(function() {
         selectionChanged: function() {
             var $selectedRows = $('#MyTableContainer').jtable('selectedRows');
             $('#SelectedRowList').empty();
+            $size = $selectedRows.length;
+            console.log("Size = " + $size);
             if ($selectedRows.length > 0) {
                 $selectedRows.each(function() {
                     var record = $(this).data('record');
-                    id = record.title;
-                    console.log("id = " + id);
+                    $id = record.id;
+                    console.log("id = " + $id);
 
                 });
             } else {
@@ -111,15 +126,14 @@ $(document).ready(function() {
     );
 });
 
-
 var postAction = {
     btnSearchClick: function() {
         $('#MyTableContainer').jtable(
                 'load',
                 {
                     cmd: 1,
-                    title: $("#articletitle").val(),
-                    type: $("#menuselect").val()
+                    title: $("#cr_title").val(),
+                    type: $("select[name=menu]").val()
                 }
         );
         console.log("Searching");
@@ -153,6 +167,31 @@ var postAction = {
         }
 
     },
+    editAction: function() {
+        CKEDITOR.instances.cr_introtext.updateElement();
+        CKEDITOR.instances.cr_fulltext.updateElement();
+        var serialize = $('form.formArticle').serialize();
+        if ($('form.formArticle').validationEngine('validate', {promptPosition: "bottomLeft"})) {
+            $.ajax({
+                url: "/Sfive/public/application/articles/update",
+                type: "post",
+                data: serialize,
+                beforeSend: function() {
+                    layoutAction.addLoading();
+                },
+                success: function(result) {
+                    layoutAction.removeLoading();
+                    console.log("Result:" + result['result']);
+                    console.log("Data:" + result['data']);
+                    if (result['result'] == 'OK') {
+                        layoutAction.sendSuccesMessage("Đã lưu");
+                    } else {
+                        layoutAction.sendErrorMessage("Không lưu được");
+                    }
+                }
+            });
+        }
+    },
     makeEditor: function(name, height) {
         CKEDITOR.replace(name, {
             fullpage: true,
@@ -163,7 +202,7 @@ var postAction = {
     },
     parentMenuChange: function() {
         console.log("Change");
-        data = $("#cr_menuselect").serialize();
+        data = $("#cr_menu_parent").serialize();
         $.ajax({
             url: "/Sfive/public/application/articles/menuChange",
             type: "post",
