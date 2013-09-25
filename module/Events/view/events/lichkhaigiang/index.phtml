@@ -6,11 +6,14 @@
         layoutAction.run_marquee();
     });
 </script>
-<h4><?php echo $this->title ?></h4>
-<hr>
+<div class="ui-widget-header ui-corner-top">
+    <?php echo $this->title ?>
+</div>
+<br>
 <div>
     <?php
     echo $this->content;
     ?>
 </div>
-<div class="fb-comments" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" data-width="700"></div>
+<br>
+<div class="fb-comments" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" data-width="750"></div>

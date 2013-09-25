@@ -108,3 +108,12 @@
 .old-news a{
     font-size: 0.9em
 }
+.intro-teacher{
+    height: 150px;
+    width: 573px;
+    float: right;
+    margin: 5px;
+}
+.img-link{
+    color: rgb(231, 139, 40) !important; 
+}

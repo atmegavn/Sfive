@@ -13,12 +13,12 @@ class TeachersController extends BaseController {
         if (sizeof($data) > 0) {
             $result = 'OK';
         } else {
-            $result = "Chưa có bài viết nào trong mục này";
+            $result = "ERROR";
         }
         //$result = array();
         return new ViewModel(array(
-            'title' => $result,
-            'content' => $data
+            'result' => $result,
+            'data' => $data
         ));
     }
 

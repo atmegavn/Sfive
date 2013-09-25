@@ -80,7 +80,15 @@ class ArticlesController extends BaseController {
             $form = new \Application\Form\ContentForm('contentForm', array(), $GLOBALS['em']);
             $contentModel = $this->getModel();
             $post = $this->getRequest()->getPost();
+            $matches = array();
+            preg_match('/(<img[^>]+>)/i', $post['contents'], $matches);
+            if (sizeof($matches) > 0) {
+                $img = $matches[0];
+            } else {
+                $img = "";
+            }
             $entity = new \Application\Entity\Articles;
+            $entity->setImgLink($img);
             $form->bind($entity);
             $form->setData($post);
             if ($form->isValid()) {
@@ -120,8 +128,16 @@ class ArticlesController extends BaseController {
             $form = new \Application\Form\ContentForm('contentForm', array(), $GLOBALS['em']);
             $contentModel = $this->getModel();
             $post = $this->getRequest()->getPost();
+            $matches = array();
+            preg_match('/(<img[^>]+>)/i', $post['contents'], $matches);
+            if (sizeof($matches) > 0) {
+                $img = $matches[0];
+            } else {
+                $img = "";
+            }
             $id = $post['idarticles'];
             $entity = $contentModel->find($id);
+            $entity->setImgLink($img);
             $form->bind($entity);
             $form->setData($post);
             if ($form->isValid()) {
