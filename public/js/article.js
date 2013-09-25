@@ -51,6 +51,12 @@ $(document).ready(function() {
         toolbar: {
             items: [
                 {
+                    text: 'Đăng bài',
+                    click: function() {
+                        document.location.href = "/Sfive/public/application/articles/create?authkey=COuF2JS4wsPYZA";
+                    }
+                },
+                {
                     text: 'Xem bài viết',
                     click: function() {
                         if ($size == 1) {
@@ -58,12 +64,6 @@ $(document).ready(function() {
                         } else {
                             alert("Xin mời chọn một tin");
                         }
-                    }
-                },
-                {
-                    text: 'Đăng bài',
-                    click: function() {
-                        document.location.href = "/Sfive/public/application/articles/create?authkey=COuF2JS4wsPYZA";
                     }
                 },
                 {

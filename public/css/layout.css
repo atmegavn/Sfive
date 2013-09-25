@@ -45,15 +45,15 @@
 #logo{
     width: 100%;
     height: 140px;
-    background-color: #ff6600;
+    background-color: #ffffff;
     margin-top: 10px;
 }
 
 .panel-header{
-    height: 30px;
+    height: 23px;
     text-align: center;
-    font-size: large;
-    color: #007000;
+    font-size: medium;
+    color: #ffffff;
     padding-top: 6px;
 }
 .hide{
@@ -78,6 +78,33 @@
 }
 .box{
     width: 100%;
-    height: 400px;
-    background-color: #ff9933;
+    background-color: #ffffff;
+}
+
+.image{
+    height: 150px;
+    width: 150px;
+    float: left;
+    margin: 5px;
+}
+
+.intro{
+    height: 150px;
+    width: 375px;
+    float: right;
+    margin: 5px;
+}
+
+.head-news{
+    height: 160px;
+    width: 100%;
+}
+
+.old-news{
+    margin-left: 10px;
+    color: green;
+}
+
+.old-news a{
+    font-size: 0.9em
 }

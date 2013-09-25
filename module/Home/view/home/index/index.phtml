@@ -1,18 +1,60 @@
+<?php
+if ($this->result == "ERROR") {
+    
+}
+?>
+
 <script type="text/javascript" src="/Sfive/public/js/home.js"></script>
 <div id="news" class="box">
     <div class="ui-widget-header ui-corner-all">
         Tin tức & Sự kiện
     </div>
-    <div>
+    <div class="head-news">
+        <div class="image">
+            <?php echo $this->img ?>
+            <script>
+                $(".image img").removeAttr('style');
+            </script>
+        </div>
+        <div class="intro">
+            <div class="head-title">
+                <?php echo '<a href="/Sfive/public/articles/detail/' . $this->headnews->getIdarticles() . '">' . $this->headnews->getTitle() . '</a><p>'; ?>
+
+            </div>
+            <div class="head-content">
+                <?php echo $this->headnews->getSummary() ?>
+            </div>
+
+        </div>
+    </div>
+    <div class="old-news">
+        <?php
+        foreach ($this->events as $news) {
+            echo '<li> <a href="/Sfive/public/articles/detail/' . $news->getIdarticles() . '">' . $news->getTitle() . '</a>';
+        }
+        ?>
+    </div>
+</div>
+<div style="margin-top: 10px" class="box">
+    <div class="ui-widget-header ui-corner-all">
+        Sfive với cộng đồng
+    </div>
+    <div class="head-news">
+
+    </div>
+    <div class="old-news">
 
     </div>
 </div>
 
-<div id="study" style="margin-top: 10px;" class="box ">
+<div style="margin-top: 10px" class="box">
     <div class="ui-widget-header ui-corner-all">
-        Hoạt động Sfive
+        Kinh nghiệm học tiếng anh
     </div>
-    <div>
+    <div class="head-news">
+
+    </div>
+    <div class="old-news">
 
     </div>
 </div>

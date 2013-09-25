@@ -13,4 +13,4 @@
     echo $this->content
     ?>
 </div>
-<div class="fb-comments" data-href="<?php echo 'http://localhost/Sfive/public/articles/detail/' . $this->id ?>" data-width="700"></div>
+<div class="fb-comments" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"?>" data-width="700"></div>
