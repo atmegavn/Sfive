@@ -165,14 +165,19 @@ class ArticlesController extends BaseController {
     public function menuChangeAction() {
         $pid = $this->getRequest()->getPost('parent_menu');
         $menuModel = new \Application\Model\MenuModel($GLOBALS['em']);
-        $menu = $menuModel->findBy(array('parent' => $pid));
+        if ($pid == '') {
+            $menu = $menuModel->findAll();
+        } else {
+            $menu = $menuModel->findBy(array('parent' => $pid));
+        }
+        $parent = $menuModel->find($pid);
         $items = array();
         if (sizeof($menu) > 0) {
             foreach ($menu as $imenu) {
                 $items[$imenu->getIdmenu()] = $imenu->getName();
             }
         } else {
-            
+            $items[$parent->getIdmenu()] = $parent->getName();
         }
         $result = array('result' => 'OK', 'data' => $items);
         return new JsonModel($result);

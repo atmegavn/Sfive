@@ -25,9 +25,14 @@ class BaseController extends AbstractActionController {
         if (!isset($GLOBALS["em"])) {
             $GLOBALS["em"] = $this->getServiceLocator()->get('doctrine.entitymanager.orm_default');
         }
+        //lấy authen key
         $parModel = new \Application\Model\ParamaterModel($GLOBALS["em"]);
         $par = $parModel->find(1);
         $GLOBALS['key'] = $par->getKey();
+        //lấy control panel key
+        $controlPanelModel = new \Application\Model\ControlpanelModel($GLOBALS["em"]);
+        $control = $controlPanelModel->find(1);
+        $GLOBALS['register'] = $control->getValue();
         parent::dispatch($request, $response);
     }
 

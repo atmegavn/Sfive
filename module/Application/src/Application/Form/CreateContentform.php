@@ -30,7 +30,7 @@ class CreateContentform extends BaseForm {
                 'attributes' => array(
                     'id' => 'cr_title',
                     'style' => 'width: 533px',
-                    'class' => 'validate[required]'
+                    'class' => 'validate[required] validate[maxSize[100]]'
                 )
             ),
             'menu' => array(
@@ -73,6 +73,7 @@ class CreateContentform extends BaseForm {
                 ),
                 'attributes' => array(
                     'id' => 'cr_introtext',
+                    'class' => 'validate[maxSize[300]]'
                 )
             ),
             'contents' => array(

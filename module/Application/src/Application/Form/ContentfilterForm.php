@@ -29,7 +29,7 @@ class ContentfilterForm extends BaseForm {
                 ),
                 'attributes' => array(
                     'id' => 'cr_title',
-                    'style' => 'width: 533px',
+                    'style' => 'width: 433px',
                     'class' => 'validate[required]',
                     'type' => 'search'
                 )
@@ -38,7 +38,7 @@ class ContentfilterForm extends BaseForm {
                 'type' => 'DoctrineModule\Form\Element\ObjectSelect',
                 'name' => 'menu',
                 'options' => array(
-                    'label' => 'Menu chứa bài viết: ',
+                    'label' => 'Box chứa bài viết: ',
                     'empty_option' => '----Tất cả----',
                     'object_manager' => $GLOBALS['em'],
                     'target_class' => 'Application\Entity\Menu',
@@ -54,7 +54,7 @@ class ContentfilterForm extends BaseForm {
                 'type' => 'DoctrineModule\Form\Element\ObjectSelect',
                 'name' => 'parent_menu',
                 'options' => array(
-                    'label' => 'Menu cha ',
+                    'label' => 'Box cha ',
                     'options' => $items_parent,
                     'empty_option' => '----Tất cả----',
                 //'object_manager' => $GLOBALS['em'],

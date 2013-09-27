@@ -1,14 +1,57 @@
+
+
 <script>
-$(document).ready(function(){
-    console.log("Chúng tôi là ai");
-    $("#left-menu").hide();
-    $("#entry").width('75%');
-    layoutAction.run_marquee();
-});
+    $(document).ready(function() {
+        console.log("Chúng tôi là ai");
+        $("#left-menu").hide();
+        $("#entry").width('75%');
+        layoutAction.run_marquee();
+    });
+    var registerAction = {
+        dangKy: function() {
+            var serialize = $('form.formRegister').serialize();
+            console.log(serialize);
+            if ($('form.formRegister').validationEngine('validate', {promptPosition: "bottomLeft"})) {
+                $.ajax({
+                    url: "/Sfive/public/register/index/add",
+                    type: "post",
+                    data: serialize,
+                    beforeSend: function() {
+                        layoutAction.addLoading();
+                    },
+                    success: function(result) {
+                        layoutAction.removeLoading();
+                        console.log("Result:" + result['result']);
+                        if (result['result'] == 'OK') {
+                            layoutAction.sendSuccesMessage("Cảm ơn bạn đã đăng ký thông tin");
+                            $("label input").val("");
+                        } else {
+                            layoutAction.sendErrorMessage("Không đăng ký được");
+                        }
+                    }
+                });
+            }
+        }
+
+    };
 </script>
-<h2><?php echo $this->title ?></h2>
-<div>
-    <?php
-        echo $this->content
-    ?>
+<div class="ui-widget-header ui-corner-top">
+    <?php echo $this->title ?>
+</div>
+<br>
+<form method="post" class="formRegister">
+    <div style="margin-right: 200px">
+        <?php
+        echo $this->formRow($this->regform->get('name'));
+        echo $this->formRow($this->regform->get('phone'));
+        echo $this->formRow($this->regform->get('email'));
+        echo $this->formRow($this->regform->get('school'));
+        echo $this->formRow($this->regform->get('class'));
+        ?>
+    </div>
+</form>
+<br>
+<div class="fb-comments" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" data-width="750"></div>
+<div style="text-align: center" class="ui-widget-header ui-corner-bottom">
+    <input type="button" value="Đăng Ký" onclick="registerAction.dangKy();">
 </div>

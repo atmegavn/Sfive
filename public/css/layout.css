@@ -80,7 +80,9 @@
     width: 100%;
     background-color: #ffffff;
 }
-
+.box .ui-widget-header{
+    background-color: #FF4700 !important;
+}
 .image{
     height: 150px;
     width: 150px;
@@ -101,7 +103,8 @@
 }
 
 .old-news{
-    margin-left: 10px;
+    margin-left: 20px;
+    /*-webkit-margin-start: 10px;*/
     color: green;
 }
 
@@ -116,4 +119,23 @@
 }
 .img-link{
     color: rgb(231, 139, 40) !important; 
+}
+
+.formRegister label{
+    text-align: right;
+}
+.articles-content table{
+    margin: 0 auto;
+}
+.head-news a{
+    font-size:1.2em;
+    font-weight: bolder;
+    color: #FF340D !important;
+}
+.head-content span{
+    font-weight: bold;
+}
+
+.old-news a{
+    color: #FF340D !important;
 }

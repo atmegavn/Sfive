@@ -17,9 +17,38 @@ use Zend\View\Model\JsonModel;
 class IndexController extends BaseController {
 
     public function indexAction() {
-        return new ViewModel(array(
-            'title' => "Đăng ký thông tin",
-        ));
+        if ($GLOBALS['register'] == 'on') {
+            $registerForm = new \Application\Form\RegisterForm('RegForm', array(), $GLOBALS['em']);
+            $viewModel = new ViewModel(array(
+                'title' => 'Đăng ký nhận khuyến mãi',
+                'regform' => $registerForm
+            ));
+            return $viewModel;
+        } else {
+            return new JsonModel(array('result' => 'Module disabled'));
+        }
+    }
+
+    public function addAction() {
+        if ($this->getRequest()->isPost()) {
+            $form = new \Application\Form\RegisterForm('RegisterForm', array(), $GLOBALS['em']);
+            $RegModel = new \Application\Model\RegisterModel($GLOBALS['em']);
+            $post = $this->getRequest()->getPost();
+            $entity = new \Application\Entity\Register;
+            $form->bind($entity);
+            $form->setData($post);
+            if ($form->isValid()) {
+                $data = $form->getData();
+                $RegModel->save(null, $data);
+            } else {
+                $result = array("result" => "ERROR-Form");
+                return new JsonModel($result);
+            }
+            $result = array('result' => 'OK');
+        } else {
+            $result = array("result" => "ERROR");
+        }
+        return new JsonModel($result);
     }
 
 }

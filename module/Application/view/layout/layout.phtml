@@ -36,7 +36,7 @@
         ?>
         <script type="text/javascript" src="http://cdn.dev.skype.com/uri/skype-uri.js"></script>
     </head>
-    <body style="background-color: rgb(112, 112, 111)">
+    <body style="background-color: rgb(32, 13, 0)">
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -80,14 +80,14 @@
             </div>
             <div id="banner" class="ui-widget-content ui-corner-all">
                 <div id="slides" style="height: 100%; width: 100%">
-                    <img  src="<?php echo $this->basePath() . '/img/example-slide-1.jpg' ?>"/>
+                    <img src="<?php echo $this->basePath() . '/img/example-slide-1.jpg' ?>"/>
                     <img src="<?php echo $this->basePath() . '/img/example-slide-2.jpg' ?>"/>
                     <img src="<?php echo $this->basePath() . '/img/example-slide-3.jpg' ?>"/>
                     <img src="<?php echo $this->basePath() . '/img/example-slide-4.jpg' ?>"/>
                 </div>
             </div>
-            <div id="runtext" style="left: 0px" class="marquee" >
-                <span>
+            <div id="runtext" style="left: 0px;" class="marquee" >
+                <span style="color: #D4FC03">
                     Việc xếp hàng chờ mua iPhone mới giống như là một truyền thống mỗi khi Apple giới thiệu sản phẩm mới. Tuy nhiên lần này thì nó diễn ra khá sớm và ngay cả khi Apple còn chưa nói ra chiếc iPhone mới sẽ như thế nào.... 
                 </span>
             </div>
@@ -99,11 +99,11 @@
                     <div id="accordion">
                         <h3>Tiếng Anh giao tiếp</h3>
                         <ul class="jquery-menu" id="news">
-                            <li><a href="<?php echo $this->url('application') ?>">Starter</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Elementary</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Pre-Intermediate</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Intermediate</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Advanced</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhgiaotiep/starter' ?>">Starter</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhgiaotiep/elementary' ?>">Elementary</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhgiaotiep/preintermediate' ?>">Pre-Intermediate</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhgiaotiep/intermediate' ?>">Intermediate</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhgiaotiep/advanced' ?>">Advanced</a></li>
                         </ul>
                         <h3>Tiếng Anh thương mại</h3>
                         <ul class="jquery-menu" id="news">
@@ -139,12 +139,13 @@
                 </div>
                 <div id="right-menu" >
                     <div id="shedule" style="width: 100%;" class="ui-widget-content ui-corner-all">
-                        <div class="panel-header ui-widget-header">
+                        <div class="panel-header ui-widget-header ui-corner-top">
                             Hoạt động
                         </div>
                         <div id="menu-schedule">
                             <ul class="jquery-menu">
                                 <li><a href="<?php echo $this->url('events') . "lich_khai_giang" ?>"><span>Lịch khai giảng</span></a></li>
+                                <li><a href="<?php echo $this->url('register') ?>"><span>Đăng ký nhận khuyến mãi</span></a></li>
                                 <li><a href="<?php echo $this->url('application') ?>" ><span>CLB tiếng Anh Sfive</span></a>
                                 </li>
                                 <li><a href="<?php echo $this->url('application') ?>" ><span>Lớp học tăng cường</span></a>
@@ -164,7 +165,7 @@
 
                         </div>
                         <script>
-                             $("#support").load("/Sfive/public/application/support");
+                            $("#support").load("/Sfive/public/application/support");
                         </script>
 
                     </div>
