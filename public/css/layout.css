@@ -23,6 +23,7 @@
     float: left;
     height: 100%;
     font-size: 0.7em;
+    border-width: 0px
 }
 #menu-schedule{
     font-size: 0.7em;
@@ -31,12 +32,13 @@
     width: 54.5%;
     float: left;
     height: 100%;
-    margin-left: 5px;
+    border-width: 0px;
 }
 #right-menu{
     width: 23%;
     height: 100%;
     float: right;
+    margin-right: -3px;
 }
 #footer{
     width: 1000px;
@@ -62,7 +64,7 @@
 .marquee {
     position:relative;
     overflow:hidden;
-    width: 1500px;
+    width: 700px;
     height:22px;
     padding-top: 5px;
 }
@@ -138,4 +140,10 @@
 
 .old-news a{
     color: #FF340D !important;
+}
+
+#slides{
+    width: 100%;
+    height: 350px;
+    margin-top: 10px;
 }

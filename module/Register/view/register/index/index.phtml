@@ -1,11 +1,9 @@
-
-
 <script>
     $(document).ready(function() {
-        console.log("Chúng tôi là ai");
         $("#left-menu").hide();
-        $("#entry").width('75%');
-        layoutAction.run_marquee();
+        $("#entry").width('76.7%');
+        $("#runtext").hide();
+        //layoutAction.run_marquee();
     });
     var registerAction = {
         dangKy: function() {
@@ -50,8 +48,9 @@
         ?>
     </div>
 </form>
-<br>
-<div class="fb-comments" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" data-width="750"></div>
-<div style="text-align: center" class="ui-widget-header ui-corner-bottom">
+
+<div style="text-align: center" class="ui-widget-header">
     <input type="button" value="Đăng Ký" onclick="registerAction.dangKy();">
 </div>
+<br>
+<div class="fb-comments" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" data-width="750"></div>

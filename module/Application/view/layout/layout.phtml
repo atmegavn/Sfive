@@ -78,22 +78,22 @@
                     <li class="last"><a href="<?php echo $this->url('application') ?>"><span>Liên hệ & Tuyển dụng</span></a></li>
                 </ul>
             </div>
-            <div id="banner" class="ui-widget-content ui-corner-all">
-                <div id="slides" style="height: 100%; width: 100%">
-                    <img src="<?php echo $this->basePath() . '/img/example-slide-1.jpg' ?>"/>
-                    <img src="<?php echo $this->basePath() . '/img/example-slide-2.jpg' ?>"/>
-                    <img src="<?php echo $this->basePath() . '/img/example-slide-3.jpg' ?>"/>
-                    <img src="<?php echo $this->basePath() . '/img/example-slide-4.jpg' ?>"/>
-                </div>
+            <div id="slides" class="ui-corner-all" style="">
+                <img height="350" width="998" class="ui-corner-all" src="<?php echo $this->basePath() . '/img/example-slide-1.jpg' ?>"/>
+                <img height="350" width="998" class="ui-corner-all" src="<?php echo $this->basePath() . '/img/example-slide-2.jpg' ?>"/>
+                <img height="350" width="998" class="ui-corner-all" src="<?php echo $this->basePath() . '/img/example-slide-3.jpg' ?>"/>
+                <img height="350" width="998" class="ui-corner-all" src="<?php echo $this->basePath() . '/img/example-slide-4.jpg' ?>"/>
             </div>
-            <div id="runtext" style="left: 0px;" class="marquee" >
-                <span style="color: #D4FC03">
-                    Việc xếp hàng chờ mua iPhone mới giống như là một truyền thống mỗi khi Apple giới thiệu sản phẩm mới. Tuy nhiên lần này thì nó diễn ra khá sớm và ngay cả khi Apple còn chưa nói ra chiếc iPhone mới sẽ như thế nào.... 
+            <div id="runtext" style="left: 1000px;" class="marquee" >
+                <span>
+                    <a style="color: #D4FC03" href="/Sfive/public/articles/detail/">
+                        <li>Không tải được dòng sự kiện...</li>
+                    </a>
                 </span>
             </div>
             <div id="content" >
                 <div id="left-menu" class="ui-widget-content ui-corner-all">
-                    <div class="panel-header ui-widget-header">
+                    <div class="panel-header ui-corner-top ui-widget-header">
                         Các khóa học
                     </div>
                     <div id="accordion">
@@ -107,29 +107,29 @@
                         </ul>
                         <h3>Tiếng Anh thương mại</h3>
                         <ul class="jquery-menu" id="news">
-                            <li><a href="<?php echo $this->url('application') ?>">Starter</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Elementary</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Pre-Intermediate</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Intermediate</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Advanced</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhthuongmai/starter' ?>">Starter</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhthuongmai/elementary' ?>">Elementary</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhthuongmai/preintermediate' ?>">Pre-Intermediate</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhthuongmai/intermediate' ?>">Intermediate</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'tienganhthuongmai/advanced' ?>">Advanced</a></li>
                         </ul>
                         <h3>Ngữ pháp tiếng Anh</h3>
                         <ul class="jquery-menu" id="news">
-                            <li><a href="<?php echo $this->url('application') ?>">Ngữ pháp cơ bản</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Ngữ pháp nâng cao</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'nguphaptienganh/nguphapcoban' ?>">Ngữ pháp cơ bản</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'nguphaptienganh/nguphapnangcao' ?>">Ngữ pháp nâng cao</a></li>
                         </ul>
                         <h3>Luyện thi TOEIC</h3>
                         <ul class="jquery-menu" id="news">
-                            <li><a href="<?php echo $this->url('application') ?>"> Dưới 450</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>">Từ 450 đến 650</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>"> Trên 650</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'Luyenthitoeic/duoi450' ?>"> Dưới 450</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'Luyenthitoeic/tu450den650' ?>">Từ 450 đến 650</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'Luyenthitoeic/tren650' ?>"> Trên 650</a></li>
                         </ul>
                         <h3>Luyện thi IELTS</h3>
                         <ul class="jquery-menu" id="news">
-                            <li><a href="<?php echo $this->url('application') ?>"> Dưới 4.0</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>"> Từ 4.0 đến 5.0</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>"> Từ 5.0 đến 6.5</a></li>
-                            <li><a href="<?php echo $this->url('application') ?>"> Trên 6.5 </a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'LuyenthiIELTS/duoi40' ?>"> Dưới 4.0</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'LuyenthiIELTS/tu40den50' ?>"> Từ 4.0 đến 5.0</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'LuyenthiIELTS/tu50den65' ?>"> Từ 5.0 đến 6.5</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc').'LuyenthiIELTS/tren65' ?>"> Trên 6.5 </a></li>
                         </ul>
                         <h3>Tiếng Anh theo yêu cầu</h3>
                     </div>
@@ -138,7 +138,7 @@
                     <?php echo $this->content; ?>
                 </div>
                 <div id="right-menu" >
-                    <div id="shedule" style="width: 100%;" class="ui-widget-content ui-corner-all">
+                    <div id="shedule" style="width: 99%; border-width: 0px" class="ui-widget-content ui-corner-all">
                         <div class="panel-header ui-widget-header ui-corner-top">
                             Hoạt động
                         </div>
@@ -157,8 +157,8 @@
                         </div>
                     </div>
                     <p>
-                    <div id="chat" style="width: 100%; height: 200px" class="ui-widget-content ui-corner-all">
-                        <div class="panel-header ui-widget-header">
+                    <div id="chat" style="width: 99%; height: 200px; border-width: 0px" class="ui-widget-content ui-corner-all">
+                        <div class="panel-header ui-widget-header ui-corner-top">
                             Tư vấn trực tuyến
                         </div>
                         <div id="support">
@@ -170,8 +170,8 @@
 
                     </div>
                     <p>
-                    <div id="like-box" style="width: 100%;" class="ui-widget-content ui-corner-all">
-                        <div class="panel-header ui-widget-header">
+                    <div id="like-box" style="width: 99%;  border-width: 0px" class="ui-widget-content ui-corner-all">
+                        <div class="panel-header ui-widget-header ui-corner-top">
                             Find us on Facebook
                         </div>
                         <div class="fb-like-box" data-href="https://www.facebook.com/sfive.edu.vn" data-width="232" data-show-faces="true" 
@@ -183,6 +183,7 @@
 
         </div>
         <div id="footer" >
+            Địa chỉ: Số 9, Ngõ 37, Lê Thanh Nghị, P. Bách Khoa, Q. Hai Bà Trưng, Hà Nội | Điện thoại: (04) 0653 5108
             <p style="text-align: center">&copy; <?php echo date('Y') ?> by Sfive English Center. <?php echo $this->translate('All rights reserved.') ?></p>
         </div>
         <div hidden="true" id="copyright">Copyright &copy; 2013 <a href="http://apycom.com/">Apycom jQuery Menus</a></div>

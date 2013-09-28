@@ -183,5 +183,40 @@ class ArticlesController extends BaseController {
         return new JsonModel($result);
     }
 
+    public function getfistAction() {
+        $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
+        $data = $contentModel->findBy(array('menu' => 33), array('idarticles' => 'DESC')); //lay article đầu tiên trong box sự kiện
+        if (sizeof($data) > 0) {
+            $id = $data[0]->getIdarticles();
+            $title = $data[0]->getTitle();
+            $result = array('result' => 'OK', 'title' => $title, 'id' => $id);
+        } else {
+            $result = array('result' => 'ERROR', 'title' => '', 'id' => -1);
+        }
+        return new JsonModel($result);
+    }
+
+    public function getmoreAction() {
+        $mid = $this->getRequest()->getPost('id');
+        $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
+        $data = $contentModel->findBy(array('menu' => 33), array('idarticles' => 'DESC')); //lay article đầu tiên trong box sự kiện
+        if (sizeof($data) > 0) {
+            foreach ($data as $ar) {
+                if ($ar->getIdarticles() < $mid) {
+                    $id = $ar->getIdarticles();
+                    $title = $ar->getTitle();
+                    $result = array('result' => 'OK', 'title' => $title, 'id' => $id);
+                } else {
+                    $id = $data[0]->getIdarticles();
+                    $title = $data[0]->getTitle();
+                    $result = array('result' => 'OK', 'title' => $title, 'id' => $id);
+                }
+            }
+        } else {
+            $result = array('result' => 'ERROR', 'title' => '', 'id' => $mid);
+        }
+        return new JsonModel($result);
+    }
+
 }
 

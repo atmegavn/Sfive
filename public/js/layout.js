@@ -1,12 +1,14 @@
 $(document).ready(function() {
+    $curentMarId = -1;
+    $curentMarText = "Không tải được dòng sự kiện...";
     $isRunMar = true;
+    $marqueeStop = true;
     console.log("loading ready");
     //$("#content").height($("#entry").height()+100);
     $("#accordion").accordion({
         heightStyle: "content"
     });
     $(".jquery-menu").menu();
-
     $("#slides").slidesjs({
         play: {
             active: true,
@@ -34,8 +36,12 @@ $(document).ready(function() {
             }
         }
     });
-    //layoutAction.run_marquee();
-    //layoutAction.skyper_init();
+    $("#runtext a").hover(function() {
+        $marqueeStop = !$marqueeStop;
+    });
+    layoutAction.getFirstArticles();
+
+
 });
 
 var layoutAction = {
@@ -46,14 +52,59 @@ var layoutAction = {
             $wid = 0 - $("#runtext").width();
             $txt = $("#runtext span").text();
             setInterval(function() {
-                $left = $left - 1;
-                if ($left == $wid) {
-                    $left = 1000;
+                if (!$marqueeStop) {
+                    $left = $left - 1;
+                    if ($left == $wid) {
+                        $left = 1000;
+                        $marqueeStop = true;
+                        layoutAction.getNewArticles();
+                    }
+                    $("#runtext").css('left', $left);
                 }
-                $("#runtext").css('left', $left);
             }, 30);
         }
-
+    },
+    getNewArticles: function() {
+        console.log("Lây tin khác để cho vào marquee");
+        $.ajax({
+            url: "/Sfive/public/application/articles/getmore",
+            type: "post",
+            data: 'id=' + $curentMarId,
+            success: function(result) {
+                //layoutAction.removeLoading();
+                console.log("Result:" + result['result']);
+                if (result['result'] == 'OK') {
+                    $curentMarId = result['id'];
+                    $curentMarText = result['title'];
+                    $("#runtext a li").text($curentMarText);
+                    $("#runtext a").attr('href', '/Sfive/public/articles/detail/' + $curentMarId);
+                    $marqueeStop = false;
+                } else {
+                    layoutAction.sendErrorMessage("Không tải được dòng sự kiện");
+                }
+            }
+        });
+    },
+    getFirstArticles: function() {
+        console.log("Lây tin đầu tiên để cho vào marquee");
+        $.ajax({
+            url: "/Sfive/public/application/articles/getfist",
+            type: "post",
+            data: '',
+            success: function(result) {
+                //layoutAction.removeLoading();
+                console.log("Result:" + result['result']);
+                if (result['result'] == 'OK') {
+                    $curentMarId = result['id'];
+                    $curentMarText = result['title'];
+                    $("#runtext a li").text($curentMarText);
+                    $("#runtext a").attr('href', '/Sfive/public/articles/detail/' + $curentMarId);
+                    $marqueeStop = false;
+                } else {
+                    layoutAction.sendErrorMessage("Không tải được dòng sự kiện");
+                }
+            }
+        });
     },
     skyper_init: function() {
         Skype.ui({
@@ -87,7 +138,6 @@ var layoutAction = {
                 stayTime: time
             });
         }
-
     },
     sendSuccesMessage: function($text, $time) {
         layoutAction.sendMessage("success", $text, $time);
@@ -105,6 +155,16 @@ var layoutAction = {
         $.blockUI({message: '<h1><img style="height: 30px" src="/Sfive/public/img/loading1.gif"/></h1>'});
     },
     removeLoading: function() {
+        $.unblockUI();
+    },
+    addPopUp: function() {
+        $.blockUI({message: '<a href="/Sfive/public/register/"><img href="/Sfive/public/home/" src="/Sfive/public/img/pop-up3.jpg"/></a>'});
+        $('.blockUI ').css('cursor', 'default');
+        $('.blockUI ').click(function() {
+            $.unblockUI();
+        });
+    },
+    removePopUp: function() {
         $.unblockUI();
     }
 };

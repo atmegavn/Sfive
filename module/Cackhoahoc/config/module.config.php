@@ -32,6 +32,10 @@ return array(
         'invokables' => array(
             'Cackhoahoc\Controller\Index' => 'Cackhoahoc\Controller\IndexController',
             'Cackhoahoc\Controller\Tienganhgiaotiep' => 'Cackhoahoc\Controller\TienganhgiaotiepController',
+            'Cackhoahoc\Controller\Tienganhthuongmai' => 'Cackhoahoc\Controller\TienganhthuongmaiController',
+            'Cackhoahoc\Controller\Nguphaptienganh' => 'Cackhoahoc\Controller\NguphaptienganhController',
+            'Cackhoahoc\Controller\Luyenthitoeic' => 'Cackhoahoc\Controller\LuyenthitoeicController',
+            'Cackhoahoc\Controller\Luyenthiielts' => 'Cackhoahoc\Controller\LuyenthiieltsController',
         ),
     ),
     'view_manager' => array(
