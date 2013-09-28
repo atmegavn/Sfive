@@ -20,9 +20,8 @@ return array(
                     'host' => 'localhost',
                     'user' => 'root',
                     'password' => '',
-                    'dbname' => 'ttta',
+                    'dbname' => 'sfive2',
                     'charset' => 'utf8',
-                   
                 )
             )
         ),
