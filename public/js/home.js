@@ -3,6 +3,6 @@ $(document).ready(function() {
     layoutAction.run_marquee();
     $("#entry").removeClass();
     $("#entry").css('margin-left', '9px');
-   layoutAction.addPopUp();
+    layoutAction.addPopUp();
 });
 

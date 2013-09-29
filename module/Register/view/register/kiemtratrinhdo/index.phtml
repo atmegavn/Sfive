@@ -37,13 +37,10 @@
     <?php echo $this->title ?>
 </div>
 <br>
-<div style="padding: 10px">
-    Trong trường hợp bạn chưa thể tham gia học ngay trong đợt khuyến mại khai trương cơ sở Lê Thanh Nghị, vui lòng đăng ký thông tin dưới đây để hưởng ưu đãi 20% cho các khóa học tại SFIVE khai giảng trước ngày 31/12/2013
-</div>
-<br>
 <form method="post" class="formRegister">
-    <div style="margin-right: 200px">
+    <div style="margin-right: 140px">
         <?php
+        echo $this->formRow($this->regform->get('from'));
         echo $this->formRow($this->regform->get('name'));
         echo $this->formRow($this->regform->get('phone'));
         echo $this->formRow($this->regform->get('email'));

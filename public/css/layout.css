@@ -147,3 +147,19 @@
     height: 350px;
     margin-top: 10px;
 }
+
+#support-name{
+    width: 180px;
+}
+
+#skypeid{
+    width: 86px;
+}
+
+#skypeid p{
+    padding: 10px;
+}
+
+#yahooid {
+    padding-top: 7px;
+}

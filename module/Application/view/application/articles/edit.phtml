@@ -1,6 +1,8 @@
 <link href="/Sfive/public/css/article.css" media="screen" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="/Sfive/public/js/article.js"></script>
+
 <script type="text/javascript">
+    window.onbeforeunload = function(event){};
     $(document).ready(function() {
         console.log("edit ready!");
         postAction.makeEditor("cr_introtext");

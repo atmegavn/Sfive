@@ -1,26 +1,24 @@
-<table style="width: 180px">
-    
-    
-    <tr>
-        <td>
-            <?php echo $this->title ?>
-        </td>
-        <td id="thuhoai0810">
-            <div id="SkypeButton_Chat_thuhoai0810_1">
-                <script type="text/javascript">
-                    Skype.ui({
-                        "name": "chat",
-                        "element": "SkypeButton_Chat_thuhoai0810_1",
-                        "participants": ["thuhoai0810"],
-                        "imageSize": 11
-                    });
-                </script>
-            </div>
-        </td>
-        <td>
-            <a href="ymsgr:sendIM?tuvannewocean06">
-                <img style="padding-bottom: 7px;" src="http://opi.yahoo.com/online?u=tuvannewocean06&m=g&t=0" border="0" alt="" />
-            </a>
-        </td>
-    </tr>
+<table id="support-table" style="width: 100%">
+    <?php
+    if ($this->result == 'OK') {
+        foreach ($this->data as $key => $sp) {
+            echo "<tr>";
+            echo '<td id="support-name">';
+            echo $sp->getName();
+            echo '</td>';
+            echo '<td id="skypeid' . $key . '">';
+                echo '<a title="Nói chuyện qua Skype" href="skype:'.$sp->getSkyper().'?chat"><img src="http://mystatus.skype.com/smallicon/'.$sp->getSkyper().'" style="border: none;" width="16" height="16" alt="My status"></a>';
+            echo '</td>';
+            echo '<td id="yahooid">';
+            echo '<a title="Nói chuyện qua Yahoo" href="ymsgr:sendIM?' . $sp->getYahoo() . '">';
+            echo '<img style="padding-bottom: 7px;" src="http://opi.yahoo.com/online?u=' . $sp->getYahoo() . '&m=g&t=0" border="0" alt="" />';
+            echo '</a>';
+            echo '</td>';
+            echo "</tr>";
+        }
+    } else {
+        echo "Không có tư vấn viên nào";
+    }
+    ?>
+    <a ></a>
 </table>

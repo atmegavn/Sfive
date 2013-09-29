@@ -1,0 +1,25 @@
+<div class="head-news">
+    <div class="image">
+        <?php echo $this->img ?>
+        <script>
+            $(".image img").removeAttr('style');
+        </script>
+    </div>
+    <div class="intro">
+        <div class="head-title">
+            <?php echo '<a href="/Sfive/public/articles/detail/' . $this->headnews->getIdarticles() . '">' . $this->headnews->getTitle() . '</a><p>'; ?>
+
+        </div>
+        <div class="head-content">
+            <?php echo $this->headnews->getSummary() ?>
+        </div>
+
+    </div>
+</div>
+<div class="old-news">
+    <?php
+    foreach ($this->events as $news) {
+        echo '<li> <a href="/Sfive/public/articles/detail/' . $news->getIdarticles() . '">' . $news->getTitle() . '</a>';
+    }
+    ?>
+</div>

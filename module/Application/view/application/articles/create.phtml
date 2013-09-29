@@ -1,7 +1,10 @@
 <script type="text/javascript" src="/Sfive/public/js/article.js"></script>
 <link href="/Sfive/public/css/article.css" media="screen" rel="stylesheet" type="text/css">
 <script type="text/javascript">
-
+    window.onbeforeunload = function(event)
+    {
+        return confirm("are you sure?");
+    };
     $(document).ready(function() {
         console.log("post done!");
         $("#left-menu").hide();

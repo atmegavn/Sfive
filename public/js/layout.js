@@ -3,10 +3,9 @@ $(document).ready(function() {
     $curentMarText = "Không tải được dòng sự kiện...";
     $isRunMar = true;
     $marqueeStop = true;
-    console.log("loading ready");
-    //$("#content").height($("#entry").height()+100);
     $("#accordion").accordion({
-        heightStyle: "content"
+        heightStyle: "content",
+        collapsible: true
     });
     $(".jquery-menu").menu();
     $("#slides").slidesjs({
@@ -48,7 +47,6 @@ var layoutAction = {
     run_marquee: function() {
         if ($isRunMar) {
             $left = parseInt($("#runtext").css('left'));
-            console.log($("#runtext").css('left'));
             $wid = 0 - $("#runtext").width();
             $txt = $("#runtext span").text();
             setInterval(function() {
@@ -65,14 +63,11 @@ var layoutAction = {
         }
     },
     getNewArticles: function() {
-        console.log("Lây tin khác để cho vào marquee");
         $.ajax({
             url: "/Sfive/public/application/articles/getmore",
             type: "post",
             data: 'id=' + $curentMarId,
             success: function(result) {
-                //layoutAction.removeLoading();
-                console.log("Result:" + result['result']);
                 if (result['result'] == 'OK') {
                     $curentMarId = result['id'];
                     $curentMarText = result['title'];
@@ -86,14 +81,11 @@ var layoutAction = {
         });
     },
     getFirstArticles: function() {
-        console.log("Lây tin đầu tiên để cho vào marquee");
         $.ajax({
             url: "/Sfive/public/application/articles/getfist",
             type: "post",
             data: '',
             success: function(result) {
-                //layoutAction.removeLoading();
-                console.log("Result:" + result['result']);
                 if (result['result'] == 'OK') {
                     $curentMarId = result['id'];
                     $curentMarText = result['title'];
@@ -127,7 +119,7 @@ var layoutAction = {
                 sticky: false,
                 position: 'bottom-left',
                 type: type,
-                stayTime: 2000
+                stayTime: 4000
             });
         } else {
             $().toastmessage('showToast', {
@@ -158,11 +150,21 @@ var layoutAction = {
         $.unblockUI();
     },
     addPopUp: function() {
-        $.blockUI({message: '<a href="/Sfive/public/register/"><img href="/Sfive/public/home/" src="/Sfive/public/img/pop-up3.jpg"/></a>'});
-        $('.blockUI ').css('cursor', 'default');
-        $('.blockUI ').click(function() {
-            $.unblockUI();
+        $.ajax({
+            url: "/Sfive/public/home/index/checkpopup",
+            type: "post",
+            data: '',
+            success: function(result) {
+                if (result['result'] == 'on') {
+                    $.blockUI({message: '<a href="/Sfive/public/register/"><img href="/Sfive/public/home/" src="/Sfive/public/img/pop-up3.jpg"/></a>'});
+                    $('.blockUI ').css('cursor', 'default');
+                    $('.blockUI ').click(function() {
+                        $.unblockUI();
+                    });
+                }
+            }
         });
+
     },
     removePopUp: function() {
         $.unblockUI();

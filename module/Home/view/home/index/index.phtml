@@ -3,62 +3,35 @@
     <div class="ui-widget-header ui-corner-top">
         Tin tức & Sự kiện
     </div>
-    <div class="head-news">
-        <div class="image">
-            <?php echo $this->img ?>
-            <script>
-                $(".image img").removeAttr('style');
-            </script>
-        </div>
-        <div class="intro">
-            <div class="head-title">
-                <?php echo '<a href="/Sfive/public/articles/detail/' . $this->headnews->getIdarticles() . '">' . $this->headnews->getTitle() . '</a><p>'; ?>
-
-            </div>
-            <div class="head-content">
-                <?php echo $this->headnews->getSummary() ?>
-            </div>
-
-        </div>
+    <div id="events">
+        <script>
+            $("#events").load("/Sfive/public/home/index/events");
+        </script>
     </div>
-    <div class="old-news">
-        <?php
-        foreach ($this->events as $news) {
-            echo '<li> <a href="/Sfive/public/articles/detail/' . $news->getIdarticles() . '">' . $news->getTitle() . '</a>';
-        }
-        ?>
+    <br>
+</div>
+<div style="margin-top: 10px" class="box ui-corner-all">
+    <div class="ui-widget-header ui-corner-top">
+        Khuyến mãi & học bổng
     </div>
+    <div id="scholarship">
+        <script>
+            $("#scholarship").load("/Sfive/public/home/index/scholarship");
+        </script>
+    </div>
+
     <br>
 </div>
 <div style="margin-top: 10px" class="box ui-corner-all">
     <div class="ui-widget-header ui-corner-top">
         Sfive với cộng đồng
     </div>
-    <div class="head-news">
-        <div class="image">
-            <?php echo $this->img ?>
-            <script>
-                $(".image img").removeAttr('style');
-            </script>
-        </div>
-        <div class="intro">
-            <div class="head-title">
-                <?php echo '<a href="/Sfive/public/articles/detail/' . $this->headnews->getIdarticles() . '">' . $this->headnews->getTitle() . '</a><p>'; ?>
-
-            </div>
-            <div class="head-content">
-                <?php echo $this->headnews->getSummary() ?>
-            </div>
-
-        </div>
+    <div id="society">
+        <script>
+            $("#society").load("/Sfive/public/home/index/society");
+        </script>
     </div>
-    <div class="old-news">
-        <?php
-        foreach ($this->events as $news) {
-            echo '<li> <a href="/Sfive/public/articles/detail/' . $news->getIdarticles() . '">' . $news->getTitle() . '</a>';
-        }
-        ?>
-    </div>
+
     <br>
 </div>
 
@@ -66,30 +39,10 @@
     <div class="ui-widget-header ui-corner-top">
         Kinh nghiệm học tiếng anh
     </div>
-     <div class="head-news">
-        <div class="image">
-            <?php echo $this->img ?>
-            <script>
-                $(".image img").removeAttr('style');
-            </script>
-        </div>
-        <div class="intro">
-            <div class="head-title">
-                <?php echo '<a href="/Sfive/public/articles/detail/' . $this->headnews->getIdarticles() . '">' . $this->headnews->getTitle() . '</a><p>'; ?>
-
-            </div>
-            <div class="head-content">
-                <?php echo $this->headnews->getSummary() ?>
-            </div>
-
-        </div>
-    </div>
-    <div class="old-news">
-        <?php
-        foreach ($this->events as $news) {
-            echo '<li> <a href="/Sfive/public/articles/detail/' . $news->getIdarticles() . '">' . $news->getTitle() . '</a>';
-        }
-        ?>
+    <div id="learnExp">
+        <script>
+            $("#learnExp").load("/Sfive/public/home/index/learnexp");
+        </script>
     </div>
     <br>
 </div>

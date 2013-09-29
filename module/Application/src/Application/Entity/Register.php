@@ -63,6 +63,27 @@ class Register
      */
     private $email;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="type", type="integer", nullable=true)
+     */
+    private $type;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="isnoticed", type="integer", nullable=true)
+     */
+    private $isnoticed;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="from", type="string", length=200, nullable=true)
+     */
+    private $from;
+
 
 
     /**
@@ -211,5 +232,74 @@ class Register
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set type
+     *
+     * @param integer $type
+     * @return Register
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return integer 
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set isnoticed
+     *
+     * @param integer $isnoticed
+     * @return Register
+     */
+    public function setIsnoticed($isnoticed)
+    {
+        $this->isnoticed = $isnoticed;
+
+        return $this;
+    }
+
+    /**
+     * Get isnoticed
+     *
+     * @return integer 
+     */
+    public function getIsnoticed()
+    {
+        return $this->isnoticed;
+    }
+
+    /**
+     * Set from
+     *
+     * @param string $from
+     * @return Register
+     */
+    public function setFrom($from)
+    {
+        $this->from = $from;
+
+        return $this;
+    }
+
+    /**
+     * Get from
+     *
+     * @return string 
+     */
+    public function getFrom()
+    {
+        return $this->from;
     }
 }

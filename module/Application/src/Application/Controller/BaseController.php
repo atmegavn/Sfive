@@ -33,6 +33,11 @@ class BaseController extends AbstractActionController {
         $controlPanelModel = new \Application\Model\ControlpanelModel($GLOBALS["em"]);
         $control = $controlPanelModel->find(1);
         $GLOBALS['register'] = $control->getValue();
+        //có bật popup quảng cáo hay không
+        $controlPanelModel = new \Application\Model\ControlpanelModel($GLOBALS["em"]);
+        $control = $controlPanelModel->find(3);
+        $GLOBALS['popup'] = $control->getValue();
+        
         parent::dispatch($request, $response);
     }
 

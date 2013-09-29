@@ -1,19 +1,21 @@
 <script>
     $(document).ready(function() {
-        console.log("Chúng tôi là ai");
         //$("#left-menu").hide();
         $("#entry").width('54.5%');
         layoutAction.run_marquee();
-        $("#entry").css('margin-left','7px');
+        $("#entry").css('margin-left', '7px');
     });
 </script>
 <div class="ui-widget-header ui-corner-top">
     <?php echo $this->title ?>
 </div>
-<br>
-<?php
-echo $this->content
-?>
+
+<div style="padding: 10px">
+    <?php
+    echo $this->content
+    ?>    
+</div>
+
 <br>
 <div class="fb-comments" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" data-width="540"></div>
 <div style="text-align: center" class="ui-widget-header ui-corner-bottom">

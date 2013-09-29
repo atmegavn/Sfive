@@ -31,6 +31,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Register\Controller\Index' => 'Register\Controller\IndexController',
+            'Register\Controller\Kiemtratrinhdo' => 'Register\Controller\KiemtratrinhdoController',
         ),
     ),
     'view_manager' => array(
