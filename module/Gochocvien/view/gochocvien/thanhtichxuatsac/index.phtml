@@ -1,0 +1,40 @@
+<script>
+    $(document).ready(function() {
+        console.log("Chúng tôi là ai");
+        $("#left-menu").hide();
+        $("#entry").width('76.7%');
+        layoutAction.run_marquee();
+    });
+</script>
+<div>
+    <div class="ui-widget-header ui-corner-top">
+        Thành tích xuất sắc
+    </div>
+    <?php
+    if ($this->result == 'ERROR') {
+        echo "Chưa có bài viết nào trong mục này";
+    } else {
+        foreach ($this->data as $gv) {
+            echo '<div class="head-news"> 
+                  <div class="image">';
+            echo $gv->getImgLink();
+            echo '<script>
+                        $(".image img").removeAttr("style");
+                     </script> 
+                 </div>';
+            echo '<div class="intro-teacher">';
+            echo '<div class="head-title">';
+            echo '<a class="img-link" href="/Sfive/public/articles/detail/' . $gv->getIdarticles() . '">' . $gv->getTitle() . '</a><p>';
+            echo '</div>';
+            echo '<div class="head-content">';
+            echo $gv->getSummary();
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '<hr>';
+        }
+    }
+    ?>
+</div>
+
+<div class="fb-comments" data-href="<?php echo "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]" ?>" data-width="750"></div>
