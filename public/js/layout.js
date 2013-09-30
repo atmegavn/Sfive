@@ -3,6 +3,7 @@ $(document).ready(function() {
     $curentMarText = "Không tải được dòng sự kiện...";
     $isRunMar = true;
     $marqueeStop = true;
+    $basepath = $("#basepath").val();
     $("#accordion").accordion({
         heightStyle: "content",
         collapsible: true
@@ -64,7 +65,7 @@ var layoutAction = {
     },
     getNewArticles: function() {
         $.ajax({
-            url: "/Sfive/public/application/articles/getmore",
+            url: $("#basepath").val()+"/application/articles/getmore",
             type: "post",
             data: 'id=' + $curentMarId,
             success: function(result) {
@@ -72,7 +73,7 @@ var layoutAction = {
                     $curentMarId = result['id'];
                     $curentMarText = result['title'];
                     $("#runtext a li").text($curentMarText);
-                    $("#runtext a").attr('href', '/Sfive/public/articles/detail/' + $curentMarId);
+                    $("#runtext a").attr('href', $("#basepath").val()+'/articles/detail/' + $curentMarId);
                     $marqueeStop = false;
                 } else {
                     layoutAction.sendErrorMessage("Không tải được dòng sự kiện");
@@ -82,7 +83,7 @@ var layoutAction = {
     },
     getFirstArticles: function() {
         $.ajax({
-            url: "/Sfive/public/application/articles/getfist",
+            url: $("#basepath").val()+"/application/articles/getfist",
             type: "post",
             data: '',
             success: function(result) {
@@ -90,7 +91,7 @@ var layoutAction = {
                     $curentMarId = result['id'];
                     $curentMarText = result['title'];
                     $("#runtext a li").text($curentMarText);
-                    $("#runtext a").attr('href', '/Sfive/public/articles/detail/' + $curentMarId);
+                    $("#runtext a").attr('href', $("#basepath").val()+'/articles/detail/' + $curentMarId);
                     $marqueeStop = false;
                 } else {
                     layoutAction.sendErrorMessage("Không tải được dòng sự kiện");
@@ -144,19 +145,19 @@ var layoutAction = {
         layoutAction.sendMessage("warning", $text, $time);
     },
     addLoading: function() {
-        $.blockUI({message: '<h1><img style="height: 30px" src="/Sfive/public/img/loading1.gif"/></h1>'});
+        $.blockUI({message: '<h1><img style="height: 30px" src="'+$basepath+'/img/loading1.gif"/></h1>'});
     },
     removeLoading: function() {
         $.unblockUI();
     },
     addPopUp: function() {
         $.ajax({
-            url: "/Sfive/public/home/index/checkpopup",
+            url: $("#basepath").val()+"/home/index/checkpopup",
             type: "post",
             data: '',
             success: function(result) {
                 if (result['result'] == 'on') {
-                    $.blockUI({message: '<a href="/Sfive/public/register/"><img href="/Sfive/public/home/" src="/Sfive/public/img/pop-up3.jpg"/></a>'});
+                    $.blockUI({message: '<a href="'+$basepath+'/register/"><img href="'+$basepath+'/home/" src="'+$basepath+'/img/pop-up3.jpg"/></a>'});
                     $('.blockUI ').css('cursor', 'default');
                     $('.blockUI ').click(function() {
                         $.unblockUI();
@@ -164,7 +165,6 @@ var layoutAction = {
                 }
             }
         });
-
     },
     removePopUp: function() {
         $.unblockUI();

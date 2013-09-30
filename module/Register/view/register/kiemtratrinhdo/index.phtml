@@ -11,7 +11,7 @@
             console.log(serialize);
             if ($('form.formRegister').validationEngine('validate', {promptPosition: "bottomLeft"})) {
                 $.ajax({
-                    url: "/Sfive/public/register/index/add",
+                    url: $("#basepath").val()+"/register/index/add",
                     type: "post",
                     data: serialize,
                     beforeSend: function() {

@@ -1,5 +1,7 @@
-<script type="text/javascript" src="/Sfive/public/js/article.js"></script>
-<link href="/Sfive/public/css/article.css" media="screen" rel="stylesheet" type="text/css">
+<?php
+    echo $this->headScript()->prependFile($this->basePath() . '/js/article.js');
+    $this->headLink()->prependStylesheet($this->basePath() . '/css/article.css');
+?>
 <div id="MyTableContainer">
     <div class="filtering">
         <table>

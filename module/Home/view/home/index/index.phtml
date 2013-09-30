@@ -1,11 +1,13 @@
-<script type="text/javascript" src="/Sfive/public/js/home.js"></script>
+<?php
+echo $this->headScript()->prependFile($this->basePath() . '/js/home.js');
+?>
 <div id="news" class="box ui-corner-all">
     <div class="ui-widget-header ui-corner-top">
         Tin tức & Sự kiện
     </div>
     <div id="events">
         <script>
-            $("#events").load("/Sfive/public/home/index/events");
+            $("#events").load($("#basepath").val()+ "/home/index/events");
         </script>
     </div>
     <br>
@@ -16,7 +18,7 @@
     </div>
     <div id="scholarship">
         <script>
-            $("#scholarship").load("/Sfive/public/home/index/scholarship");
+            $("#scholarship").load($("#basepath").val()+ "/home/index/scholarship");
         </script>
     </div>
 
@@ -28,7 +30,7 @@
     </div>
     <div id="society">
         <script>
-            $("#society").load("/Sfive/public/home/index/society");
+            $("#society").load($("#basepath").val()+ "/home/index/society");
         </script>
     </div>
 
@@ -41,7 +43,7 @@
     </div>
     <div id="learnExp">
         <script>
-            $("#learnExp").load("/Sfive/public/home/index/learnexp");
+            $("#learnExp").load($("#basepath").val()+ "/home/index/learnexp");
         </script>
     </div>
     <br>

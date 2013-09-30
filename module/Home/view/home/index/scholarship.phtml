@@ -9,7 +9,7 @@
         <div class="head-title">
             <?php
             if ($this->result == 'OK') {
-                echo '<a href="/Sfive/public/articles/detail/' . $this->headnews->getIdarticles() . '">' . $this->headnews->getTitle() . '</a><p>';
+                echo '<a href="' . $this->basePath() . '/articles/detail/' . $this->headnews->getIdarticles() . '">' . $this->headnews->getTitle() . '</a><p>';
             } else {
                 echo 'Chưa có bài viết nào';
             }
@@ -29,7 +29,7 @@
     <?php
     if ($this->result == 'OK') {
         foreach ($this->events as $news) {
-            echo '<li> <a href="/Sfive/public/articles/detail/' . $news->getIdarticles() . '">' . $news->getTitle() . '</a>';
+            echo '<li> <a href="' . $this->basePath() . '/articles/detail/' . $news->getIdarticles() . '">' . $news->getTitle() . '</a>';
         }
     }
     ?>

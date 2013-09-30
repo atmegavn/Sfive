@@ -45,22 +45,22 @@ $(document).ready(function() {
         multiselect: false, //Allow multiple selecting
         selectingCheckboxes: true, //Show checkboxes on first column
         actions: {
-            listAction: '/Sfive/public/application/articles/list',
-            // deleteAction: '/Sfive/public/application/articles/delete'
+            listAction: $("#basepath").val()+'/application/articles/list'
+            // deleteAction: $("#basepath").val()+'/application/articles/delete'
         },
         toolbar: {
             items: [
                 {
                     text: 'Đăng bài',
                     click: function() {
-                        document.location.href = "/Sfive/public/application/articles/create?authkey=COuF2JS4wsPYZA";
+                        document.location.href = $("#basepath").val()+"/application/articles/create?authkey=COuF2JS4wsPYZA";
                     }
                 },
                 {
                     text: 'Xem bài viết',
                     click: function() {
                         if ($size == 1) {
-                            document.location.href = "/Sfive/public/articles/detail/" + $id;
+                            document.location.href = $("#basepath").val()+"/articles/detail/" + $id;
                         } else {
                             alert("Xin mời chọn một tin");
                         }
@@ -71,7 +71,7 @@ $(document).ready(function() {
                     click: function() {
                         console.log("Sửa bài viết");
                         if ($size == 1) {
-                            document.location.href = "/Sfive/public/application/articles/edit?authkey=COuF2JS4wsPYZA&id=" + $id;
+                            document.location.href = $("#basepath").val()+"/application/articles/edit?authkey=COuF2JS4wsPYZA&id=" + $id;
                         } else {
                             alert("Xin mời chọn một tin");
                         }
@@ -83,7 +83,7 @@ $(document).ready(function() {
                         console.log("Xóa bài viết");
                         if ($size == 1) {
                             $.ajax({
-                                url: "/Sfive/public/application/articles/delete",
+                                url: $("#basepath").val()+"/application/articles/delete",
                                 type: "post",
                                 data: "id=" + $id,
                                 beforeSend: function() {
@@ -180,7 +180,7 @@ var postAction = {
         //formAction.addLoadding();
         if ($('form.formArticle').validationEngine('validate', {promptPosition: "bottomLeft"})) {
             $.ajax({
-                url: "/Sfive/public/application/articles/add",
+                url: $("#basepath").val()+"/application/articles/add",
                 type: "post",
                 data: serialize,
                 beforeSend: function() {
@@ -206,7 +206,7 @@ var postAction = {
         var serialize = $('form.formArticle').serialize();
         if ($('form.formArticle').validationEngine('validate', {promptPosition: "bottomLeft"})) {
             $.ajax({
-                url: "/Sfive/public/application/articles/update",
+                url: $("#basepath").val()+"/application/articles/update",
                 type: "post",
                 data: serialize,
                 beforeSend: function() {
@@ -237,7 +237,7 @@ var postAction = {
         console.log("Change");
         data = $("#cr_menu_parent").serialize();
         $.ajax({
-            url: "/Sfive/public/application/articles/menuChange",
+            url: $("#basepath").val()+"/application/articles/menuChange",
             type: "post",
             data: data,
             beforeSend: function() {

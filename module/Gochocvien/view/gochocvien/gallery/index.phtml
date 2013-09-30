@@ -24,7 +24,7 @@
                  </div>';
             echo '<div class="intro-teacher">';
             echo '<div class="head-title">';
-            echo '<a class="img-link" href="/Sfive/public/articles/detail/' . $gv->getIdarticles() . '">' . $gv->getTitle() . '</a><p>';
+            echo '<a class="img-link" href="' . $this->basePath() . '/articles/detail/' . $gv->getIdarticles() . '">' . $gv->getTitle() . '</a><p>';
             echo '</div>';
             echo '<div class="head-content">';
             echo $gv->getSummary();

@@ -37,6 +37,7 @@
         <script type="text/javascript" src="http://cdn.dev.skype.com/uri/skype-uri.js"></script>
     </head>
     <body style="background-color: rgb(32, 13, 0)">
+        <input id="basepath" hidden="true"  value="<?php echo $this->basePath() ?>"/>
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -86,7 +87,7 @@
             </div>
             <div id="runtext" style="left: 1000px;" class="marquee" >
                 <span>
-                    <a style="color: #D4FC03" href="/Sfive/public/articles/detail/">
+                    <a style="color: #D4FC03" href="<?php echo $this->basePath() . '/articles/detail/' ?>">
                         <li>Không tải được dòng sự kiện...</li>
                     </a>
                 </span>
@@ -165,7 +166,7 @@
 
                         </div>
                         <script>
-                            $("#support").load("/Sfive/public/application/support");
+                            $("#support").load($('#basepath').val() + '/application/support');
                         </script>
 
                     </div>
