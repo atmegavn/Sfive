@@ -1,6 +1,7 @@
 <?php
-echo $this->headScript()->prependFile($this->basePath() . '/js/home.js');
+    echo '<script type="text/javascript" src="'.$this->basePath().'/js/home.js"></script>'
 ?>
+<input id="basepath" hidden="true"  value="<?php echo $this->basePath() ?>"/>
 <div id="news" class="box ui-corner-all">
     <div class="ui-widget-header ui-corner-top">
         Tin tức & Sự kiện
