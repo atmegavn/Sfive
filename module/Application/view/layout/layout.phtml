@@ -50,7 +50,7 @@
             }(document, 'script', 'facebook-jssdk'));</script>
         <div id="pages">
             <div id="logo" class="ui-corner-all" >
-                <img src="<?php echo $this->basePath() . '/img/sfivelogo.gif' ?>" style="height: 85px; margin: 10px"/>
+                <img src="<?php echo $this->basePath() . '/img/sfivelogo.jpg' ?>" style="height: 140px; width: 1001px" class="ui-corner-all"/>
             </div>
             <div id="menu">
                 <ul class="menu">
@@ -66,10 +66,10 @@
                     <li><a href="<?php echo $this->url('application') ?>" ><span>Góc học viên</span></a>
                         <div>
                             <ul>
-                                <li><a href="<?php echo $this->url('gochocvien') . "cam-nghi-hoc-vien"?>"><span>Cảm nghĩ học viên</span></a></li>
-                                <li><a href="<?php echo $this->url('gochocvien') . "thanh-tich-xuat-sac"?>"><span>Thành tích xuất sắc</span></a></li>
-                                <li><a href="<?php echo $this->url('gochocvien') . "goc-thu-gian"?>"><span>Góc thư giãn</span></a></li>
-                                <li><a href="<?php echo $this->url('gochocvien') . "gallery"?>"><span>Gallery</span></a></li>
+                                <li><a href="<?php echo $this->url('gochocvien') . "cam-nghi-hoc-vien" ?>"><span>Cảm nghĩ học viên</span></a></li>
+                                <li><a href="<?php echo $this->url('gochocvien') . "thanh-tich-xuat-sac" ?>"><span>Thành tích xuất sắc</span></a></li>
+                                <li><a href="<?php echo $this->url('gochocvien') . "goc-thu-gian" ?>"><span>Góc thư giãn</span></a></li>
+                                <li><a href="<?php echo $this->url('gochocvien') . "gallery" ?>"><span>Gallery</span></a></li>
                             </ul>
                         </div>
                     </li>
@@ -84,6 +84,7 @@
                 <img height="350" width="998" class="ui-corner-all" src="<?php echo $this->basePath() . '/img/example-slide-2.jpg' ?>"/>
                 <img height="350" width="998" class="ui-corner-all" src="<?php echo $this->basePath() . '/img/example-slide-3.jpg' ?>"/>
                 <img height="350" width="998" class="ui-corner-all" src="<?php echo $this->basePath() . '/img/example-slide-4.jpg' ?>"/>
+                <img height="350" width="998" class="ui-corner-all" src="<?php echo $this->basePath() . '/img/example-slide-5.jpg' ?>"/>
             </div>
             <div id="runtext" style="left: 1000px;" class="marquee" >
                 <span>
@@ -116,23 +117,30 @@
                         </ul>
                         <h3>Ngữ pháp tiếng Anh</h3>
                         <ul class="jquery-menu" id="news">
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'nguphaptienganh/nguphapcoban' ?>">Ngữ pháp cơ bản</a></li>
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'nguphaptienganh/nguphapnangcao' ?>">Ngữ pháp nâng cao</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'nguphaptienganh/elementary' ?>">Elementary</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'nguphaptienganh/preintermediate' ?>">Pre-Intermediate</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'nguphaptienganh/intermediate' ?>">Intermediate</a></li>
                         </ul>
                         <h3>Luyện thi TOEIC</h3>
                         <ul class="jquery-menu" id="news">
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthitoeic/duoi450' ?>"> Dưới 450</a></li>
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthitoeic/tu450den650' ?>">Từ 450 đến 650</a></li>
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthitoeic/tren650' ?>"> Trên 650</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthitoeic/foundation' ?>"> Toeic Foundation</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthitoeic/basic' ?>">Toeic Basic</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthitoeic/developing' ?>"> Toeic Developing</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthitoeic/analysis' ?>"> Toeic Analysis</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthitoeic/mastering' ?>"> Toeic Mastering</a></li>
                         </ul>
                         <h3>Luyện thi IELTS</h3>
                         <ul class="jquery-menu" id="news">
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'LuyenthiIELTS/duoi40' ?>"> Dưới 4.0</a></li>
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'LuyenthiIELTS/tu40den50' ?>"> Từ 4.0 đến 5.0</a></li>
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'LuyenthiIELTS/tu50den65' ?>"> Từ 5.0 đến 6.5</a></li>
-                            <li><a href="<?php echo $this->url('cackhoahoc') . 'LuyenthiIELTS/tren65' ?>"> Trên 6.5 </a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthiielts/foundation' ?>"> Toeic Foundation</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthiielts/basic' ?>">Toeic Basic</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthiielts/developing' ?>"> Toeic Developing</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthiielts/analysis' ?>"> Toeic Analysis</a></li>
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Luyenthiielts/mastering' ?>"> Toeic Mastering</a></li>
                         </ul>
                         <h3>Tiếng Anh theo yêu cầu</h3>
+                        <ul class="jquery-menu" id="news">
+                            <li><a href="<?php echo $this->url('cackhoahoc') . 'Tienganhtheoyeucau' ?>"> Tiếng anh theo yêu cầu</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div id="entry" class="ui-widget-content ui-corner-all">

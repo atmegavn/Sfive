@@ -8,9 +8,9 @@ use Zend\View\Model\JsonModel;
 
 class LuyenthiieltsController extends BaseController {
 
-    public function duoi40Action() {
+    public function foundationAction() {
         $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
-        $data = $contentModel->findBy(array('menu' => 52), array('idarticles' => 'DESC')); //lay article trong menu: Chúng tôi là ai
+        $data = $contentModel->findBy(array('menu' => 42), array('idarticles' => 'DESC')); //lay article trong menu: Chúng tôi là ai
         if (sizeof($data) > 0) {
             $title = $data[0]->getTitle();
             $content = $data[0]->getContents();
@@ -25,7 +25,7 @@ class LuyenthiieltsController extends BaseController {
         ));
     }
 
-    public function tu40den50Action() {
+    public function basicAction() {
         $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
         $data = $contentModel->findBy(array('menu' => 53), array('idarticles' => 'DESC')); //lay article trong menu: Chúng tôi là ai
         if (sizeof($data) > 0) {
@@ -42,7 +42,7 @@ class LuyenthiieltsController extends BaseController {
         ));
     }
 
-    public function tu50den65Action() {
+    public function developingAction() {
         $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
         $data = $contentModel->findBy(array('menu' => 54), array('idarticles' => 'DESC')); //lay article trong menu: Chúng tôi là ai
         if (sizeof($data) > 0) {
@@ -59,9 +59,9 @@ class LuyenthiieltsController extends BaseController {
         ));
     }
 
-    public function tren65Action() {
+    public function analysisAction() {
         $contentModel = new \Application\Model\ContentModel($GLOBALS['em']);
-        $data = $contentModel->findBy(array('menu' => 55), array('idarticles' => 'DESC')); //lay article trong menu: Chúng tôi là ai
+        $data = $contentModel->findBy(array('menu' => 59), array('idarticles' => 'DESC')); //lay article trong menu: Chúng tôi là ai
         if (sizeof($data) > 0) {
             $title = $data[0]->getTitle();
             $content = $data[0]->getContents();

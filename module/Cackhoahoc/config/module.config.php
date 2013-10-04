@@ -36,6 +36,7 @@ return array(
             'Cackhoahoc\Controller\Nguphaptienganh' => 'Cackhoahoc\Controller\NguphaptienganhController',
             'Cackhoahoc\Controller\Luyenthitoeic' => 'Cackhoahoc\Controller\LuyenthitoeicController',
             'Cackhoahoc\Controller\Luyenthiielts' => 'Cackhoahoc\Controller\LuyenthiieltsController',
+            'Cackhoahoc\Controller\Tienganhtheoyeucau' => 'Cackhoahoc\Controller\TienganhtheoyeucauController',
         ),
     ),
     'view_manager' => array(

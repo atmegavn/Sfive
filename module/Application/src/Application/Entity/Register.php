@@ -80,9 +80,9 @@ class Register
     /**
      * @var string
      *
-     * @ORM\Column(name="from", type="string", length=200, nullable=true)
+     * @ORM\Column(name="potison", type="string", length=200, nullable=true)
      */
-    private $from;
+    private $potison;
 
 
 
@@ -281,25 +281,25 @@ class Register
     }
 
     /**
-     * Set from
+     * Set potison
      *
-     * @param string $from
+     * @param string $potison
      * @return Register
      */
-    public function setFrom($from)
+    public function setFrom($potison)
     {
-        $this->from = $from;
+        $this->potison = $potison;
 
         return $this;
     }
 
     /**
-     * Get from
+     * Get potison
      *
      * @return string 
      */
     public function getFrom()
     {
-        return $this->from;
+        return $this->potison;
     }
 }

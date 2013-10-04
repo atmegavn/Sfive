@@ -157,7 +157,7 @@ var layoutAction = {
             data: '',
             success: function(result) {
                 if (result['result'] == 'on') {
-                    $.blockUI({message: '<a href="'+$basepath+'/register/"><img href="'+$basepath+'/home/" src="'+$basepath+'/img/pop-up3.jpg"/></a>'});
+                    $.blockUI({message: '<a href="'+$basepath+'/articles/detail/36"><img href="'+$basepath+'/home/" src="'+$basepath+'/img/pop-up3.jpg"/></a>'});
                     $('.blockUI ').css('cursor', 'default');
                     $('.blockUI ').click(function() {
                         $.unblockUI();
